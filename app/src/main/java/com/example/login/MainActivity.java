@@ -14,10 +14,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.longin);
 
         // Busca a Res per id
-        Button btnSigIn = findViewById(R.id.btnSignIn);
+        TextView txtTitle = findViewById(R.id.txtTitle);
+        TextView txtLogin = findViewById(R.id.txtLogin);
+        Button btnSigIn = findViewById(R.id.btnAdd);
         EditText txtUserName = findViewById(R.id.txtUserName);
         EditText txtPassword = findViewById(R.id.txtPassword);
         TextView lblLoginResult = findViewById(R.id.lblLoginResult);
