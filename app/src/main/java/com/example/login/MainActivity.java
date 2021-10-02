@@ -16,18 +16,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Busca a Res per id
+        // Search on Res and display the items view by id
         Button btnSigIn = findViewById(R.id.btnSignIn);
         EditText txtUserName = findViewById(R.id.txtUserName);
         EditText txtPassword = findViewById(R.id.txtPassword);
         TextView lblLoginResult = findViewById(R.id.lblLoginResult);
 
-        //Agafat de la documentació d'android: Li estem dient que miri si al botó "escolta" algo
+        //Assign a click listener to the button
         btnSigIn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                // Per veure els logs: Logcat/ Filtrar pel tag/ Seleccionar bé l'emulador
-                // Log.i("Test", "Has fet click");
 
+                // To see test go > Logtcat > Filter by @tag ("Test")
                 if(txtUserName.getText().toString().equals("123") && txtPassword.getText().toString().equals("123")){
                     Log.i("Test", "Log in Correcte");
                 } else {
