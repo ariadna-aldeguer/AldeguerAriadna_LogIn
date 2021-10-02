@@ -9,12 +9,12 @@ Finally, on the bottom there is a label that will return a message if the sign w
 
 ## Code structure
 
-- AndroidManifest: Describes essential information for Android building.
-- Res: Includes the resources that Android Application uses:
-    - Drawable: Includes the icons in the application.
-    - Layout: The archive 'Activity_Main' has the design of the Login Screen.
-    - Values: Contains the archive 'Color' with the primary colors of the app.
+- `AndroidManifest:` Describes essential information for Android building.
+- `Res:` Includes the resources that Android Application uses:
+    - `Drawable:` Includes the icons in the application.
+    - `Layout:` The archive 'Activity_Main' has the design of the Login Screen.
+    - `Values:` Contains the archive 'Color' with the primary colors of the app.
 
-- The applications has a runnable APK: 'app-debug'
+- The applications has a **runnable APK**: 'app-debug'
 
 
