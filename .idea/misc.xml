@@ -5,6 +5,8 @@
       <map>
         <entry key="app/src/main/res/drawable/custom_input.xml" value="0.41510416666666666" />
         <entry key="app/src/main/res/drawable/ic_email.xml" value="0.415625" />
+        <entry key="app/src/main/res/drawable/ic_home.xml" value="0.39947916666666666" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.39947916666666666" />
         <entry key="app/src/main/res/drawable/loginRound.xml" value="0.2875" />
         <entry key="app/src/main/res/drawable/login_backgraound.xml" value="0.40520833333333334" />
         <entry key="app/src/main/res/drawable/menu.xml" value="0.40520833333333334" />
