@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.Home);
+        setContentView(R.layout.home);
 
         // Busca a Res per id
         TextView txtTitle = findViewById(R.id.txtTitle);
@@ -26,26 +26,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnSigIn = findViewById(R.id.btnAdd);
         EditText txtUserName = findViewById(R.id.txtUserName);
         EditText txtPassword = findViewById(R.id.txtPassword);
-        TextView lblLoginResult = findViewById(R.id.lblLoginResult);
-        BottomNavigationView bottomNav = findViewById(R.id.main_menu);
 
-        bottomNav.setOnNavigationItemSelectedListener(item -> {
-            Fragment selectedFragment = null;
-            switch (item.getItemId()){
-                case R.id.nav_form:
-                    selectedFragment = new FormFragment();
-                    break;
-                case R.id.nav_home:
-                    selectedFragment = new HomeFragment();
-                    break;
-                case R.id.nav_list:
-                    selectedFragment = new ListFragment();
-                    break;
-            }
-
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
-            return true;
-        });
 
         btnSigIn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
@@ -54,12 +35,11 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), MainMenu.class));
                     Log.i("Test", "Log in Correcte");
                 } else {
+                    TextView lblLoginResult = findViewById(R.id.lblLoginResult);
                     Log.i("Test", "Log in Incorrecte");
                 }
 
-
             }
         });
-
     }
 }
