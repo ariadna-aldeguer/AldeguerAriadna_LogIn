@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
         Button btnSigIn = findViewById(R.id.btnAdd);
         EditText txtUserName = findViewById(R.id.txtUserName);
         EditText txtPassword = findViewById(R.id.txtPassword);
+        // Això es perque es mostri el splash screen
+        SystemClock.sleep(200);
+        setTheme(R.style.Theme_Login);
 
 
         btnSigIn.setOnClickListener(new View.OnClickListener() {

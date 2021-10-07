@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+        android:id="@+id/form_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:visibility="visible">
@@ -92,6 +92,7 @@
                 android:ems="10"
                 android:fontFamily="@font/roboto_bold"
                 android:hint="Email"
+                android:text="123"
                 android:inputType="textPersonName"
                 android:paddingStart="30dp"
                 android:textColor="@color/grey"
@@ -142,6 +143,7 @@
                 android:ems="10"
                 android:fontFamily="@font/roboto_bold"
                 android:hint="Password"
+                android:text="123"
                 android:inputType="textPassword"
                 android:paddingStart="30dp"
                 android:textColor="@color/grey"
