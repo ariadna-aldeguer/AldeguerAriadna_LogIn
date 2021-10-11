@@ -3,10 +3,17 @@ package com.example.login;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,7 +65,38 @@ public class ListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false);
+        ArrayList<String> array_noms = new ArrayList<String>();
+        View view = inflater.inflate(R.layout.fragment_list, container, false);
+
+        array_noms.add("Luke Skywalker");
+        array_noms.add("Leia Organa");
+        array_noms.add("Chewbacca");
+        array_noms.add("C3P0");
+        array_noms.add("R2D2");
+        array_noms.add("Darth Vader");
+        array_noms.add("Han Solo");
+        array_noms.add("Luke Skywalker");
+        array_noms.add("Leia Organa");
+        array_noms.add("Chewbacca");
+        array_noms.add("C3P0");
+        array_noms.add("R2D2");
+        array_noms.add("Darth Vader");
+        array_noms.add("Han Solo");
+        array_noms.add("Luke Skywalker");
+        array_noms.add("Leia Organa");
+        array_noms.add("Chewbacca");
+        array_noms.add("C3P0");
+        array_noms.add("R2D2");
+        array_noms.add("Darth Vader");
+        array_noms.add("Han Solo");
+
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(array_noms);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager((getContext())));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+
+
+        return view;
     }
 }
