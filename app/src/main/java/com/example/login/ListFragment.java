@@ -94,7 +94,7 @@ public class ListFragment extends Fragment {
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(array_noms);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager((getContext())));
-        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+        //recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 
 
         return view;

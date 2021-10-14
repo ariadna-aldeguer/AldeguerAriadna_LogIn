@@ -3,5 +3,5 @@
     <item
         android:id="@+id/nav"
         android:icon="@android:drawable/ic_dialog_dialer"
-        android:title=""></item>
+        android:title="hola"></item>
 </menu>

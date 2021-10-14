@@ -5,7 +5,8 @@
     android:id="@+id/recyclerView"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:background="@drawable/custom_input">
+    android:layout_marginBottom="20dp"
+    android:background="@drawable/custom_input_list">
 
     <TextView
         android:id="@+id/txtCityList"
@@ -57,5 +58,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.448"
-        tools:srcCompat="@drawable/barcelona" />
+        app:srcCompat="@drawable/barcelona" />
 </androidx.constraintlayout.widget.ConstraintLayout>
