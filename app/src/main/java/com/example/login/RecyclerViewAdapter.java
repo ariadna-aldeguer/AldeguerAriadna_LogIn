@@ -9,13 +9,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.login.Model.Travel;
+
 import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private ArrayList<String> array_noms;
+    private ArrayList<Travel> array_travel;
 
-    public RecyclerViewAdapter(ArrayList<String> arrN){
-        array_noms = arrN;
+    public RecyclerViewAdapter(ArrayList<Travel> arrN){
+        array_travel = arrN;
     }
 
     @NonNull
@@ -30,12 +32,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.txtCity.setText(array_noms.get(position));
+        holder.txtCity.setText(array_travel.get(position).getCity());
+        holder.txtAirport.setText(array_travel.get(position).getAirport());
+        holder.txtCountry.setText(array_travel.get(position).getCountry());
     }
 
     @Override
     public int getItemCount() {
-        return array_noms.size();
+        return array_travel.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

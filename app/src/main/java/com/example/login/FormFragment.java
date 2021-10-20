@@ -1,5 +1,7 @@
 package com.example.login;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,7 +9,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.login.DB.TravelsContract.*;
+import com.example.login.DB.TravelsDBHelper;
+import com.example.login.Model.Travel;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,18 +35,17 @@ public class FormFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+   private TravelsDBHelper dbHelper;
+   private SQLiteDatabase db;
+
     public FormFragment() {
         // Required empty public constructor
     }
+    public FormFragment(TravelsDBHelper dbHelper, SQLiteDatabase db) {
+        this.dbHelper = dbHelper;
+        this.db = db;
+    }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FormFragment.
-     */
     // TODO: Rename and change types and number of parameters
     public static FormFragment newInstance(String param1, String param2) {
         FormFragment fragment = new FormFragment();
@@ -59,6 +68,25 @@ public class FormFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_form, container, false);
+        View view = inflater.inflate(R.layout.fragment_form, container, false);
+
+        EditText country = view.findViewById(R.id.txtInputCountry);
+        EditText city = view.findViewById(R.id.txtInputCity);
+        EditText airport = view.findViewById(R.id.txtInputAirport);
+
+        Button button = view.findViewById(R.id.btnAdd);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String co = country.getText().toString();
+                String ci = city.getText().toString();
+                String ai = airport.getText().toString();
+                Travel travel = new Travel(co, ci, ai);
+                dbHelper.insertContact(db, travel);
+            }
+        });
+
+        return view;
     }
 }

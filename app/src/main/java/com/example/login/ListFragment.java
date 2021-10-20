@@ -1,5 +1,7 @@
 package com.example.login;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,8 +15,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.login.DB.TravelsContract.*;
+import com.example.login.DB.TravelsDBHelper;
+
 import java.util.ArrayList;
 
+
+import com.example.login.Model.Travel;
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ListFragment#newInstance} factory method to
@@ -31,8 +38,16 @@ public class ListFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private TravelsDBHelper dbHelper;
+    private SQLiteDatabase db;
+
     public ListFragment() {
         // Required empty public constructor
+    }
+
+    public ListFragment(TravelsDBHelper dbHelper, SQLiteDatabase db) {
+        this.dbHelper = dbHelper;
+        this.db = db;
     }
 
     /**
@@ -65,38 +80,25 @@ public class ListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ArrayList<String> array_noms = new ArrayList<String>();
+        ArrayList<Travel> array_travel = getTravels();
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
-        array_noms.add("Luke Skywalker");
-        array_noms.add("Leia Organa");
-        array_noms.add("Chewbacca");
-        array_noms.add("C3P0");
-        array_noms.add("R2D2");
-        array_noms.add("Darth Vader");
-        array_noms.add("Han Solo");
-        array_noms.add("Luke Skywalker");
-        array_noms.add("Leia Organa");
-        array_noms.add("Chewbacca");
-        array_noms.add("C3P0");
-        array_noms.add("R2D2");
-        array_noms.add("Darth Vader");
-        array_noms.add("Han Solo");
-        array_noms.add("Luke Skywalker");
-        array_noms.add("Leia Organa");
-        array_noms.add("Chewbacca");
-        array_noms.add("C3P0");
-        array_noms.add("R2D2");
-        array_noms.add("Darth Vader");
-        array_noms.add("Han Solo");
-
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(array_noms);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(array_travel);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager((getContext())));
         //recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
-
-
         return view;
+    }
+    public ArrayList<Travel> getTravels(){
+        ArrayList<Travel> data=new ArrayList<Travel>();
+        Cursor cursor = db.query(TravelsEntry.TABLE_NAME, new String[]{"country", "city", "airport"},null, null, null, null, null);
+        Travel t;
+        while(cursor.moveToNext()){
+            t = new Travel(cursor.getString(0), cursor.getString(1), cursor.getString(2));
+            data.add(t);
+        }
+        cursor.close();
+        return data;
     }
 }

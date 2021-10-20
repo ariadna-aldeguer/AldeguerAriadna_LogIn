@@ -34,10 +34,16 @@
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="91dp"><![CDATA[
+
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_form_back"
             app:layout_constraintVertical_bias="1.0">
+
+            ]]>
 
             <TextView
                 android:id="@+id/txtTitleFavorites"
@@ -60,6 +66,9 @@
                 android:id="@+id/txtSubFavorites"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="58dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="91dp"
                 android:fontFamily="@font/roboto"
                 android:text="Save your favorite places and never forget it"
                 android:textColor="@color/blue"
@@ -175,19 +184,20 @@
                 android:layout_width="302dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="54dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginTop="40dp"
                 android:backgroundTint="@color/blue"
                 android:fontFamily="@font/roboto_bold"
                 android:text="Add place"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtInputAirport"
                 tools:text="Add place" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

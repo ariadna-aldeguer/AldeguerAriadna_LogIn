@@ -22,12 +22,17 @@
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/main_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/up_menu">
+        android:layout_height="0dp"
         android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/main_menu"
         app:layout_constraintTop_toBottomOf="@+id/up_menu">
 
     </FrameLayout>
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/main_menu"
         android:layout_width="match_parent"

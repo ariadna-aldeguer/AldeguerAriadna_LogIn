@@ -64,7 +64,6 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
-
         Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter;
