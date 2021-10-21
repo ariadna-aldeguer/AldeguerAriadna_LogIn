@@ -105,7 +105,6 @@ public class ListFragment extends Fragment {
 
             @Override
             public void onClick(View view) {
-                int position = recyclerView.getAbsolute
                 dbHelper.dropTravel(db);
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.detach(ListFragment.this).attach(ListFragment.this).commit();
