@@ -2,6 +2,7 @@ package com.example.login.DB;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -10,6 +11,8 @@ import com.example.login.DB.TravelsContract.*;
 import com.example.login.Model.Travel;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
 
 public class TravelsDBHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
@@ -33,7 +36,15 @@ public class TravelsDBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_ENTRIES);
     }
 
-    public void insertContact(SQLiteDatabase db, Travel t){
+    public void dropAllTravels(SQLiteDatabase db){
+        //Check the bd is open
+        if (db.isOpen()){
+            db.delete(TravelsEntry.TABLE_NAME, null, null);
+        }else{
+            Log.i("sql","Database is closed");
+        }
+    }
+    public void insertTravel(SQLiteDatabase db, Travel t){
         //Check the bd is open
         if (db.isOpen()){
             //Creation of the register for insert object with the content values
@@ -48,7 +59,31 @@ public class TravelsDBHelper extends SQLiteOpenHelper {
             Log.i("sql","Database is closed");
         }
     }
+    public void dropTravel(SQLiteDatabase db, Travel t){
+        //Check the bd is open
+        if (db.isOpen()){
+            // Define 'where' part of query.
+            String selection = TravelsEntry.COLUMN_NAME_COUNTRY + " LIKE ?";
+            // Specify arguments in placeholder order.
+            String[] selectionArgs = { t.getCountry() };
+            // Issue SQL statement.
+            int deletedRows = db.delete(TravelsEntry.TABLE_NAME, selection, selectionArgs);
+        }else{
+            Log.i("sql","Database is closed");
+        }
+    }
 
+    public ArrayList<Travel> getTravels(SQLiteDatabase db){
+        ArrayList<Travel> data=new ArrayList<Travel>();
+        Cursor cursor = db.query(TravelsEntry.TABLE_NAME, new String[]{"country", "city", "airport"},null, null, null, null, null);
+        Travel t;
+        while(cursor.moveToNext()){
+            t = new Travel(cursor.getString(0), cursor.getString(1), cursor.getString(2));
+            data.add(t);
+        }
+        cursor.close();
+        return data;
+    }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {

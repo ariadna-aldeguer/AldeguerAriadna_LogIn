@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -83,10 +84,19 @@ public class FormFragment extends Fragment {
                 String ci = city.getText().toString();
                 String ai = airport.getText().toString();
                 Travel travel = new Travel(co, ci, ai);
-                dbHelper.insertContact(db, travel);
+                dbHelper.insertTravel(db, travel);
+
+                country.setText("");
+
+                refresh();
             }
         });
 
         return view;
+    }
+
+    public void refresh(){
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.detach(FormFragment.this).attach(FormFragment.this).commit();
     }
 }

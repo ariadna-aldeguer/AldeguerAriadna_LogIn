@@ -4,44 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/recyclerView"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:layout_marginBottom="20dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
     android:background="@drawable/custom_input_list">
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="4dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_delete" />
 
     <TextView
         android:id="@+id/txtCityList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/roboto_bold"
         android:text="City"
         android:textAllCaps="true"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgList"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.23" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtAirportList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
+        android:layout_marginBottom="10dp"
+        android:capitalize="characters"
         android:fontFamily="@font/roboto"
         android:text="Airport"
         android:textAllCaps="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgList"
         app:layout_constraintTop_toBottomOf="@+id/txtCountryList"
-        app:layout_constraintVertical_bias="0.17" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/txtCountryList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="12dp"
         android:fontFamily="@font/roboto"
         android:text="Country"
         app:layout_constraintStart_toEndOf="@+id/imgList"
@@ -49,14 +63,27 @@
 
     <ImageView
         android:id="@+id/imgList"
-        android:layout_width="94dp"
-        android:layout_height="92dp"
-        android:layout_marginStart="28dp"
+        android:layout_width="96dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="5dp"
+        android:padding="5dp"
+        app:shapeAppearanceOverlay="@style/roundedImageView"
+        app:srcCompat="@drawable/barcelona"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/txtCountryList"
         app:layout_constraintHorizontal_bias="0.231"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.448"
-        app:srcCompat="@drawable/barcelona" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/btnDrop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_edit" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

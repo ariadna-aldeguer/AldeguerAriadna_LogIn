@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -80,25 +82,37 @@ public class ListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ArrayList<Travel> array_travel = getTravels();
+        ArrayList<Travel> array_travel = dbHelper.getTravels(db);
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(array_travel);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager((getContext())));
+
+        Button buttonDropAll = view.findViewById(R.id.btnDropAll);
+        buttonDropAll.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                dbHelper.dropAllTravels(db);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.detach(ListFragment.this).attach(ListFragment.this).commit();
+            }
+        });
+        Button buttonDrop = view.findViewById(R.id.btnDrop);
+        buttonDrop.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                int position = recyclerView.getAbsolute
+                dbHelper.dropTravel(db);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.detach(ListFragment.this).attach(ListFragment.this).commit();
+            }
+        });
+
         //recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         return view;
-    }
-    public ArrayList<Travel> getTravels(){
-        ArrayList<Travel> data=new ArrayList<Travel>();
-        Cursor cursor = db.query(TravelsEntry.TABLE_NAME, new String[]{"country", "city", "airport"},null, null, null, null, null);
-        Travel t;
-        while(cursor.moveToNext()){
-            t = new Travel(cursor.getString(0), cursor.getString(1), cursor.getString(2));
-            data.add(t);
-        }
-        cursor.close();
-        return data;
     }
 }
