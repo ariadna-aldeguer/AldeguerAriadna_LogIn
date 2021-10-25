@@ -29,21 +29,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="110dp"
-            android:background="@drawable/login_backgraound"
+            android:background="@drawable/login_back"
             android:rotationX="0"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="visible">
+            <!--app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.333"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="91dp"><![CDATA[
-
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_form_back"
-            app:layout_constraintVertical_bias="1.0">
-
-            ]]>
+            tools:layout_editor_absoluteY="91dp"-->
 
             <TextView
                 android:id="@+id/txtTitleFavorites"
@@ -145,20 +138,6 @@
                 app:layout_constraintStart_toStartOf="@+id/txtInputCity"
                 app:layout_constraintTop_toTopOf="@+id/txtInputCity" />
 
-            <TextView
-                android:id="@+id/txtAirport"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="30dp"
-                android:fontFamily="@font/roboto_bold"
-                android:text="Airport"
-                android:textAllCaps="true"
-                android:textColor="@color/blue"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/txtInputAirport"
-                app:layout_constraintTop_toTopOf="@+id/txtInputAirport" />
-
             <EditText
                 android:id="@+id/txtInputAirport"
                 android:layout_width="299dp"
@@ -178,6 +157,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtInputCity" />
+
+            <TextView
+                android:id="@+id/txtAirport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Airport"
+                android:textAllCaps="true"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/txtInputAirport"
+                app:layout_constraintTop_toTopOf="@+id/txtInputAirport" />
 
             <Button
                 android:id="@+id/btnAdd"

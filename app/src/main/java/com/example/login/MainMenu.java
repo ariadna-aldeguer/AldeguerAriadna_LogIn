@@ -19,6 +19,8 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+
         //Conecta con la BD
         dbHelper = new TravelsDBHelper(getApplicationContext());
         db = dbHelper.getWritableDatabase();

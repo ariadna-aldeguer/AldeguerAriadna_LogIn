@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +62,27 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        TextView user = view.findViewById(R.id.txtUser);
+        TextView journey = view.findViewById(R.id.txtJourney);
+        TextView begin = view.findViewById(R.id.txtBegin);
+        TextView suggestions = view.findViewById(R.id.txtSuggestions);
+        ImageView bcn = view.findViewById(R.id.imgBcn);
+        ImageView bcn2 = view.findViewById(R.id.imgBcn2);
+        ImageView bcn3 = view.findViewById(R.id.imgBcn3);
+        TextView covid = view.findViewById(R.id.txtCovid);
+        TextView restrictions = view.findViewById(R.id.txtRestrictions);
+        TextView low = view.findViewById(R.id.txtLow);
+        TextView moderate = view.findViewById(R.id.txtModerate);
+        TextView unknown = view.findViewById(R.id.txtUnknown);
+        ImageView green = view.findViewById(R.id.imgGreen);
+        ImageView pink = view.findViewById(R.id.imgPink);
+        ImageView yellow = view.findViewById(R.id.imgYellow);
+        ImageView grey = view.findViewById(R.id.imgGrey);
+        Button moreInfo = view.findViewById(R.id.btnMoreInfo);
+
+        return view;
+
     }
 }

@@ -3,12 +3,14 @@ package com.example.login;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.login.DB.TravelsDBHelper;
 import com.example.login.Model.Travel;
 
 import java.util.ArrayList;
@@ -18,6 +20,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public RecyclerViewAdapter(ArrayList<Travel> arrN){
         array_travel = arrN;
+    }
+    public interface RecyclerViewClickListener {
+        public void recyclerViewListClicked(View v, int position);
     }
 
     @NonNull
@@ -35,6 +40,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.txtCity.setText(array_travel.get(position).getCity());
         holder.txtAirport.setText(array_travel.get(position).getAirport());
         holder.txtCountry.setText(array_travel.get(position).getCountry());
+
     }
 
     @Override
@@ -47,6 +53,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView txtCountry;
         TextView txtAirport;
         ImageView imgList;
+        ImageButton btnDrop;
+        ImageButton btnEdit;
 
         public ViewHolder(@NonNull View view) {
             super(view);
@@ -54,7 +62,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             txtCountry = view.findViewById(R.id.txtCountryList);
             txtAirport = view.findViewById(R.id.txtAirportList);
             imgList = view.findViewById(R.id.imgList);
+            btnDrop = view.findViewById(R.id.btnDrop);
+            btnEdit = view.findViewById(R.id.btnEdit);
         }
+    }
+    public Object getMyPos(int pos){
+        return array_travel.get(pos);
     }
 }
 

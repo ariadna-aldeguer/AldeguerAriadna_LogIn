@@ -52,7 +52,7 @@
             android:id="@+id/btnDropAll"
             android:layout_width="302dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="28dp"
+            android:layout_marginBottom="20dp"
             android:backgroundTint="@color/blue"
             android:fontFamily="@font/roboto_bold"
             android:text="Drop all "

@@ -1,12 +1,10 @@
 package com.example.login;
 
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,10 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.ImageButton;
 
-import com.example.login.DB.TravelsContract.*;
 import com.example.login.DB.TravelsDBHelper;
 
 import java.util.ArrayList;
@@ -100,16 +96,7 @@ public class ListFragment extends Fragment {
                 ft.detach(ListFragment.this).attach(ListFragment.this).commit();
             }
         });
-        Button buttonDrop = view.findViewById(R.id.btnDrop);
-        buttonDrop.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View view) {
-                dbHelper.dropTravel(db);
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.detach(ListFragment.this).attach(ListFragment.this).commit();
-            }
-        });
 
         //recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         return view;

@@ -85,7 +85,6 @@ public class FormFragment extends Fragment {
                 String ai = airport.getText().toString();
                 Travel travel = new Travel(co, ci, ai);
                 dbHelper.insertTravel(db, travel);
-
                 country.setText("");
 
                 refresh();

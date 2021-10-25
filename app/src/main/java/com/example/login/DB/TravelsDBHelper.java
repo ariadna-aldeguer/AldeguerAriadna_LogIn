@@ -59,19 +59,6 @@ public class TravelsDBHelper extends SQLiteOpenHelper {
             Log.i("sql","Database is closed");
         }
     }
-    public void dropTravel(SQLiteDatabase db, Travel t){
-        //Check the bd is open
-        if (db.isOpen()){
-            // Define 'where' part of query.
-            String selection = TravelsEntry.COLUMN_NAME_COUNTRY + " LIKE ?";
-            // Specify arguments in placeholder order.
-            String[] selectionArgs = { t.getCountry() };
-            // Issue SQL statement.
-            int deletedRows = db.delete(TravelsEntry.TABLE_NAME, selection, selectionArgs);
-        }else{
-            Log.i("sql","Database is closed");
-        }
-    }
 
     public ArrayList<Travel> getTravels(SQLiteDatabase db){
         ArrayList<Travel> data=new ArrayList<Travel>();
