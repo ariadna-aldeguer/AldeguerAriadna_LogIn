@@ -1,5 +1,7 @@
 package com.example.login;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
@@ -91,9 +93,23 @@ public class ListFragment extends Fragment {
 
             @Override
             public void onClick(View view) {
-                dbHelper.dropAllTravels(db);
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.detach(ListFragment.this).attach(ListFragment.this).commit();
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("All travels will be deleted permanently.");
+                builder.setMessage("Do you want to continue?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dbHelper.dropAllTravels(db);
+                                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                                ft.detach(ListFragment.this).attach(ListFragment.this).commit();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                //KO METHOD
+                            }
+                        });
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 

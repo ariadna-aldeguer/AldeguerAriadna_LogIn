@@ -61,7 +61,6 @@
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.522"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="Drop all" />
     </androidx.constraintlayout.widget.ConstraintLayout>

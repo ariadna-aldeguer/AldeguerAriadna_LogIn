@@ -1,5 +1,6 @@
 package com.example.login;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.login.DB.TravelsContract.*;
 import com.example.login.DB.TravelsDBHelper;
@@ -83,11 +85,13 @@ public class FormFragment extends Fragment {
                 String co = country.getText().toString();
                 String ci = city.getText().toString();
                 String ai = airport.getText().toString();
-                Travel travel = new Travel(co, ci, ai);
-                dbHelper.insertTravel(db, travel);
-                country.setText("");
-
-                refresh();
+                if (co!="" && ci != "" && ai != ""){
+                    Travel travel = new Travel(co, ci, ai);
+                    dbHelper.insertTravel(db, travel);
+                    Toast.makeText(getContext(), "The travel " + co  + " has been saved successfully", Toast.LENGTH_LONG).show();
+                    country.setText("");
+                    refresh();
+                }
             }
         });
 
