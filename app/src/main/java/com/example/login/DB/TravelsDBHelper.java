@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.example.login.DB.TravelsContract.*;
+import com.example.login.FormFragment;
+import com.example.login.ListFragment;
 import com.example.login.Model.Travel;
 
 import androidx.annotation.Nullable;
@@ -62,14 +64,23 @@ public class TravelsDBHelper extends SQLiteOpenHelper {
 
     public ArrayList<Travel> getTravels(SQLiteDatabase db){
         ArrayList<Travel> data=new ArrayList<Travel>();
-        Cursor cursor = db.query(TravelsEntry.TABLE_NAME, new String[]{"country", "city", "airport"},null, null, null, null, null);
+        Cursor cursor = db.query(TravelsEntry.TABLE_NAME, new String[]{"id", "country", "city", "airport"},null, null, null, null, null);
         Travel t;
         while(cursor.moveToNext()){
-            t = new Travel(cursor.getString(0), cursor.getString(1), cursor.getString(2));
+            t = new Travel(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
             data.add(t);
         }
         cursor.close();
         return data;
+    }
+    public void deleteTravel(SQLiteDatabase db, int id){
+        if (db.isOpen()){
+            String ID = String.valueOf(id);
+            Log.i("test tests", ID);
+            db.execSQL("DELETE FROM " + TravelsEntry.TABLE_NAME + " WHERE ID = " + ID);
+        }else{
+            Log.i("test sql","Database is closed");
+        }
     }
 
     @Override

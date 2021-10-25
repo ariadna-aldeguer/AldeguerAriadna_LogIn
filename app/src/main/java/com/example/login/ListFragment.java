@@ -84,7 +84,7 @@ public class ListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(array_travel);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(dbHelper, db, array_travel);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager((getContext())));
 
@@ -94,13 +94,12 @@ public class ListFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setTitle("All travels will be deleted permanently.");
+                builder.setTitle("All travels will be deleted permanently");
                 builder.setMessage("Do you want to continue?")
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dbHelper.dropAllTravels(db);
-                                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                                ft.detach(ListFragment.this).attach(ListFragment.this).commit();
+                                refresh();
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -114,7 +113,12 @@ public class ListFragment extends Fragment {
         });
 
 
+
         //recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         return view;
+    }
+    public void refresh(){
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.detach(ListFragment.this).attach(ListFragment.this).commit();
     }
 }

@@ -1,5 +1,7 @@
 package com.example.login;
 
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.login.DB.TravelsDBHelper;
@@ -17,12 +20,20 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private ArrayList<Travel> array_travel;
+    private TravelsDBHelper dbHelper;
+    private SQLiteDatabase db;
 
     public RecyclerViewAdapter(ArrayList<Travel> arrN){
         array_travel = arrN;
     }
     public interface RecyclerViewClickListener {
         public void recyclerViewListClicked(View v, int position);
+    }
+
+    public RecyclerViewAdapter(TravelsDBHelper dbHelper, SQLiteDatabase db, ArrayList<Travel> arrN) {
+        array_travel = arrN;
+        this.dbHelper = dbHelper;
+        this.db = db;
     }
 
     @NonNull
@@ -40,7 +51,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.txtCity.setText(array_travel.get(position).getCity());
         holder.txtAirport.setText(array_travel.get(position).getAirport());
         holder.txtCountry.setText(array_travel.get(position).getCountry());
-
+        holder.btnDrop.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                int id = array_travel.get(position).getId();
+                dbHelper.deleteTravel(db, id);
+            }
+        });
     }
 
     @Override

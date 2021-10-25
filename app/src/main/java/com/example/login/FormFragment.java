@@ -85,10 +85,12 @@ public class FormFragment extends Fragment {
                 String co = country.getText().toString();
                 String ci = city.getText().toString();
                 String ai = airport.getText().toString();
-                if (co!="" && ci != "" && ai != ""){
+                if (co.equals("") && ci.equals("") && ai.equals("")) {
+                    Toast.makeText(getContext(), "You need to introduce at least one property", Toast.LENGTH_LONG).show();
+                } else {
                     Travel travel = new Travel(co, ci, ai);
                     dbHelper.insertTravel(db, travel);
-                    Toast.makeText(getContext(), "The travel " + co  + " has been saved successfully", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "The travel " + co + " has been saved successfully", Toast.LENGTH_LONG).show();
                     country.setText("");
                     refresh();
                 }
