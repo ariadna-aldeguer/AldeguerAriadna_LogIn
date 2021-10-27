@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -51,7 +52,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.txtCity.setText(array_travel.get(position).getCity());
         holder.txtAirport.setText(array_travel.get(position).getAirport());
         holder.txtCountry.setText(array_travel.get(position).getCountry());
-        holder.btnDrop.setOnClickListener(new View.OnClickListener() {
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int id = array_travel.get(position).getId();
                 dbHelper.deleteTravel(db, id);
@@ -69,8 +70,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView txtCountry;
         TextView txtAirport;
         ImageView imgList;
-        ImageButton btnDrop;
-        ImageButton btnEdit;
+        Button btnDelete;
+        Button btnEdit;
 
         public ViewHolder(@NonNull View view) {
             super(view);
@@ -78,7 +79,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             txtCountry = view.findViewById(R.id.txtCountryList);
             txtAirport = view.findViewById(R.id.txtAirportList);
             imgList = view.findViewById(R.id.imgList);
-            btnDrop = view.findViewById(R.id.btnDrop);
+            btnDelete = view.findViewById(R.id.btnDelete);
             btnEdit = view.findViewById(R.id.btnEdit);
         }
     }

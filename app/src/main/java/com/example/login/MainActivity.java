@@ -1,30 +1,22 @@
 package com.example.login;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.ArrayList;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home);
+        setContentView(R.layout.login);
 
         // Busca a Res per id
         TextView txtTitle = findViewById(R.id.txtTitle);
@@ -42,10 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
                 if(txtUserName.getText().toString().equals("123") && txtPassword.getText().toString().equals("123")){
                     startActivity(new Intent(getApplicationContext(), MainMenu.class));
-                    Log.i("Test", "Log in Correcte");
                 } else {
-                    TextView lblLoginResult = findViewById(R.id.lblLoginResult);
-                    Log.i("Test", "Log in Incorrecte");
+                    Toast.makeText(getApplicationContext(), "The password is incorrect", Toast.LENGTH_LONG).show();
                 }
 
             }

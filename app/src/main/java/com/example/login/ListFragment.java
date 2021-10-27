@@ -112,8 +112,6 @@ public class ListFragment extends Fragment {
             }
         });
 
-
-
         //recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         return view;
     }
