@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), MainMenu.class));
                 } else {
                     Toast.makeText(getApplicationContext(), "The password is incorrect", Toast.LENGTH_LONG).show();
+                    txtPassword.setText("");
                 }
 
             }

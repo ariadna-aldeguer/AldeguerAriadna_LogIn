@@ -90,10 +90,18 @@ public class FormFragment extends Fragment {
                 } else {
                     Travel travel = new Travel(co, ci, ai);
                     dbHelper.insertTravel(db, travel);
-                    Toast.makeText(getContext(), "The travel " + co + " has been saved successfully", Toast.LENGTH_LONG).show();
-                    country.setText("");
+                    if (!co.equals("")){
+                        Toast.makeText(getContext(), "The travel " + co + " has been saved successfully", Toast.LENGTH_LONG).show();
+                    } else if (!ci.equals("")){
+                        Toast.makeText(getContext(), "The travel " + ci + " has been saved successfully", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getContext(), "The travel " + ci + " has been saved successfully", Toast.LENGTH_LONG).show();
+                    }
                     refresh();
                 }
+                country.setText("");
+                city.setText("");
+                airport.setText("");
             }
         });
 

@@ -1,5 +1,7 @@
 package com.example.login;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,6 +26,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<Travel> array_travel;
     private TravelsDBHelper dbHelper;
     private SQLiteDatabase db;
+    private Fragment fragment;
 
     public RecyclerViewAdapter(ArrayList<Travel> arrN){
         array_travel = arrN;
@@ -31,7 +35,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public void recyclerViewListClicked(View v, int position);
     }
 
-    public RecyclerViewAdapter(TravelsDBHelper dbHelper, SQLiteDatabase db, ArrayList<Travel> arrN) {
+    public RecyclerViewAdapter(Fragment fragment, TravelsDBHelper dbHelper, SQLiteDatabase db, ArrayList<Travel> arrN) {
+        this.fragment = fragment;
         array_travel = arrN;
         this.dbHelper = dbHelper;
         this.db = db;
@@ -48,7 +53,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.txtCity.setText(array_travel.get(position).getCity());
         holder.txtAirport.setText(array_travel.get(position).getAirport());
         holder.txtCountry.setText(array_travel.get(position).getCountry());
@@ -56,6 +61,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             public void onClick(View v) {
                 int id = array_travel.get(position).getId();
                 dbHelper.deleteTravel(db, id);
+                ListFragment list = (ListFragment) fragment.getFragmentManager().findFragmentById(R.id.fragment_container);
+                list.refresh();
             }
         });
     }

@@ -11,59 +11,62 @@
     android:layout_marginBottom="10dp"
     android:background="@drawable/custom_input_list">
 
-    <TextView
-        android:id="@+id/txtCityList"
-        android:layout_width="155dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="26dp"
-        android:ellipsize="end"
-        android:ems="10"
-        android:fontFamily="@font/roboto_bold"
-        android:gravity="left|center_vertical"
-        android:maxLines="1"
-        android:text="City"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:autoSizeTextType="none"
-        app:layout_constraintEnd_toStartOf="@+id/constraintButtons"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout3"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txtCountryList"
-        android:layout_width="155dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="26dp"
-        android:fontFamily="@font/roboto"
-        android:text="Country"
-        app:layout_constraintEnd_toStartOf="@+id/constraintButtons"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/txtCityList" />
-
-    <TextView
-        android:id="@+id/txtAirportList"
-        android:layout_width="155dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="10dp"
-        android:capitalize="characters"
-        android:ellipsize="end"
-        android:fontFamily="@font/roboto"
-        android:maxLines="1"
-        android:singleLine="true"
-        android:text="Airport"
-        android:textAllCaps="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/constraintButtons"
         app:layout_constraintStart_toEndOf="@+id/constraintLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/txtCountryList"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txtCityList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ellipsize="end"
+            android:ems="10"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="left|center_vertical"
+            android:text="City"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:autoSizeTextType="none"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtCountryList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto"
+            android:text="Country"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCityList" />
+
+        <TextView
+            android:id="@+id/txtAirportList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:capitalize="characters"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Airport"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCountryList"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"

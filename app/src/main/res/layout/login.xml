@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/form_background"
@@ -100,22 +100,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtLogin" />
-
-            <TextView
-                android:id="@+id/lblLoginResult"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="21dp"
-                android:fontFamily="@font/roboto_bold"
-                android:text="Incorrect password"
-                android:textColor="@color/grey"
-                android:textSize="10sp"
-                app:layout_constraintBottom_toTopOf="@+id/btnAdd"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.169"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
 
             <Button
                 android:id="@+id/btnAdd"

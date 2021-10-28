@@ -29,11 +29,11 @@ public class MainMenu extends AppCompatActivity {
         bottomNav.setOnNavigationItemSelectedListener(item -> {
             Fragment selectedFragment = null;
             switch (item.getItemId()){
-                case R.id.nav_form:
-                    selectedFragment = new FormFragment(dbHelper, db);
-                    break;
                 case R.id.nav_home:
                     selectedFragment = new HomeFragment();
+                    break;
+                case R.id.nav_form:
+                    selectedFragment = new FormFragment(dbHelper, db);
                     break;
                 case R.id.nav_list:
                     selectedFragment = new ListFragment(dbHelper, db);

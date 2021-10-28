@@ -9,12 +9,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.login.DB.TravelsDBHelper;
 
@@ -40,6 +42,7 @@ public class ListFragment extends Fragment {
 
     private TravelsDBHelper dbHelper;
     private SQLiteDatabase db;
+    private Fragment listFragment;
 
     public ListFragment() {
         // Required empty public constructor
@@ -48,6 +51,7 @@ public class ListFragment extends Fragment {
     public ListFragment(TravelsDBHelper dbHelper, SQLiteDatabase db) {
         this.dbHelper = dbHelper;
         this.db = db;
+        this.listFragment = this;
     }
 
     /**
@@ -84,9 +88,10 @@ public class ListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(dbHelper, db, array_travel);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, dbHelper, db, array_travel);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager((getContext())));
+
 
         Button buttonDropAll = view.findViewById(R.id.btnDropAll);
         buttonDropAll.setOnClickListener(new View.OnClickListener() {
