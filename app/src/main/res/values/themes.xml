@@ -1,20 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Login" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Levi" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue</item>
-        <item name="colorPrimaryVariant">@color/ligth_blue</item>
+        <item name="colorPrimaryVariant">@color/light_blue</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/pink</item>
-        <item name="colorSecondaryVariant">@color/ligth_pink</item>
+        <item name="colorSecondaryVariant">@color/light_pink</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
     <!-- Pantalla d'espera -->
-    <style name="SplashTheme" parent="Theme.Login">
+    <style name="SplashTheme" parent="Theme.Levi">
         <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
     <style name="roundedImageView" parent="">

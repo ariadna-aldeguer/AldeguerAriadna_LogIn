@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.login" >
+    package="com.example.levi" >
 
     <application
         android:allowBackup="true"
@@ -8,12 +8,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Login" >
+        android:theme="@style/Theme.Levi" >
         <activity
-            android:name=".MainMenu"
+            android:name="com.example.levi.MainMenu"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
+            android:name="com.example.levi.LoginActivity"
             android:exported="true"
             android:theme="@style/SplashTheme" >
             <intent-filter>

@@ -2,11 +2,11 @@
 <resources>
     <color name="pink">#DB8A8A</color>
     <color name="blue">#2E3A59</color>
-    <color name="ligth_blue">#662E3A59</color>
-    <color name="ligth_pink">#1ADB8A8A</color>
+    <color name="light_blue">#662E3A59</color>
+    <color name="light_pink">#1ADB8A8A</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#A5A5A5</color>
-    <color name="ligth_grey">#FFF1F2F8</color>
+    <color name="light_grey">#FFF1F2F8</color>
 </resources>
