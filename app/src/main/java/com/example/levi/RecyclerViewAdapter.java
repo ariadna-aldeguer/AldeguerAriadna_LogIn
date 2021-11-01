@@ -18,7 +18,12 @@ import com.example.levi.Model.Travel;
 
 import java.util.ArrayList;
 
+/**
+ * RecyclerView that will display a list of travels.
+ */
+
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+
     private ArrayList<Travel> array_travel;
     private TravelsDBHelper dbHelper;
     private SQLiteDatabase db;
@@ -27,10 +32,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public RecyclerViewAdapter(ArrayList<Travel> arrN){
         array_travel = arrN;
     }
+
     public interface RecyclerViewClickListener {
         public void recyclerViewListClicked(View v, int position);
     }
 
+    /**
+     * Constructor of RecyclerViewAdapter
+     */
     public RecyclerViewAdapter(Fragment fragment, TravelsDBHelper dbHelper, SQLiteDatabase db, ArrayList<Travel> arrN) {
         this.fragment = fragment;
         array_travel = arrN;
@@ -38,6 +47,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.db = db;
     }
 
+
+    /**
+     * Creates a new ViewHolder
+     * @param parent:  layout manager
+     * @param viewType
+     * @return holder
+     */
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -46,13 +62,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return holder;
     }
 
-
-
+    /**
+     * Associate a ViewHolder with data.
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.txtCity.setText(array_travel.get(position).getCity());
         holder.txtAirport.setText(array_travel.get(position).getAirport());
         holder.txtCountry.setText(array_travel.get(position).getCountry());
+
+        /**
+         * This bottom will delete a travel on the db.
+         */
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int id = array_travel.get(position).getId();
@@ -63,12 +84,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         });
     }
 
+    /**
+     * Get the size of the data set.
+     * @return nº items
+     */
     @Override
     public int getItemCount() {
         return array_travel.size();
     }
 
+    /**
+     * Links the elements of item_list with the RecyclerView
+     */
     public class ViewHolder extends RecyclerView.ViewHolder{
+
         TextView txtCity;
         TextView txtCountry;
         TextView txtAirport;
@@ -85,9 +114,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             btnDelete = view.findViewById(R.id.btnDelete);
             btnEdit = view.findViewById(R.id.btnEdit);
         }
-    }
-    public Object getMyPos(int pos){
-        return array_travel.get(pos);
     }
 }
 

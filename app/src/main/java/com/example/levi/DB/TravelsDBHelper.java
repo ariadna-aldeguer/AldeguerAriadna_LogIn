@@ -12,6 +12,10 @@ import com.example.levi.Model.Travel;
 
 import java.util.ArrayList;
 
+/**
+ * A helper class to manage database creation and version management.
+ */
+
 public class TravelsDBHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "travels.db";
@@ -24,24 +28,39 @@ public class TravelsDBHelper extends SQLiteOpenHelper {
             TravelsEntry.COLUMN_NAME_AIRPORT + " TEXT " +
             ")";
 
-
+    /**
+     * Constructor of class TravelDBHelper
+     */
     public TravelsDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    /**
+     * Called when the database is created for the first time.
+     * It creates de tables for the database.
+     * @param db: database instance
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_ENTRIES);
     }
 
-    public void dropAllTravels(SQLiteDatabase db){
-        //Check the bd is open
-        if (db.isOpen()){
-            db.delete(TravelsEntry.TABLE_NAME, null, null);
-        }else{
-            Log.i("sql","Database is closed");
-        }
+    /**
+     * Called when the database needs to be upgraded.
+     * @param db: database instance
+     * @param i: oldVersion
+     * @param i1: newVersion
+     */
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        //TODO
     }
+
+    /**
+     * Inserts a travel instance into the database
+     * @param db: database instance
+     * @param t: instance of travel
+     */
     public void insertTravel(SQLiteDatabase db, Travel t){
         //Check the bd is open
         if (db.isOpen()){
@@ -53,34 +72,54 @@ public class TravelsDBHelper extends SQLiteOpenHelper {
             values.put(TravelsEntry.COLUMN_NAME_CITY, t.getCity());
             values.put(TravelsEntry.COLUMN_NAME_AIRPORT, t.getAirport());
             db.insert(TravelsEntry.TABLE_NAME, null, values);
-        }else{
+        } else {
             Log.i("sql","Database is closed");
         }
     }
 
+    /**
+     * Getter of travels of the database
+     * @param db: database instance
+     * @return an arraylist of Travels
+     */
     public ArrayList<Travel> getTravels(SQLiteDatabase db){
-        ArrayList<Travel> data=new ArrayList<Travel>();
+
+        ArrayList<Travel> data= new ArrayList<Travel>();
         Cursor cursor = db.query(TravelsEntry.TABLE_NAME, new String[]{"id", "country", "city", "airport"},null, null, null, null, null);
         Travel t;
-        while(cursor.moveToNext()){
+        while (cursor.moveToNext()) {
             t = new Travel(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
             data.add(t);
         }
         cursor.close();
         return data;
     }
+
+    /**
+     * Deletes a travel of database by id
+     * @param db: database instance
+     * @param id: id of the travel
+     */
     public void deleteTravel(SQLiteDatabase db, int id){
+
         if (db.isOpen()){
             String ID = String.valueOf(id);
-            Log.i("test tests", ID);
             db.execSQL("DELETE FROM " + TravelsEntry.TABLE_NAME + " WHERE ID = " + ID);
-        }else{
-            Log.i("test sql","Database is closed");
+        } else {
+            Log.i("sql","Database is closed");
         }
     }
 
-    @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    /**
+     * Deletes all travels of database
+     * @param db: database instance
+     */
+    public void deleteAllTravels(SQLiteDatabase db){
 
+        if (db.isOpen()){
+            db.delete(TravelsEntry.TABLE_NAME, null, null);
+        } else {
+            Log.i("sql","Database is closed");
+        }
     }
 }

@@ -13,10 +13,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link SettingsFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * A fragment subclass for settings screen.
  */
+
 public class SettingsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -29,17 +28,15 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
     private String mParam2;
     private Spinner spinner;
 
+    /**
+     * Empty constructor of class FormFragment
+     */
     public SettingsFragment() {
         // Required empty public constructor
     }
 
     /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SettingsFragment.
+     * Create a new instance of SettingsFragment
      */
     // TODO: Rename and change types and number of parameters
     public static SettingsFragment newInstance(String param1, String param2) {
@@ -51,6 +48,10 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         return fragment;
     }
 
+    /**
+     * Called to do initial creation of the fragment.
+     * @param savedInstanceState: instance of setting fragment
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,9 +61,13 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         }
     }
 
+    /**
+     * Creates and returns the view for the form fragment
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
         Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -77,11 +82,17 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         return view;
     }
 
+    /**
+     * Callback method to be invoked when an item in this view has been selected.
+     */
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
         Toast.makeText(adapterView.getContext(), (String) adapterView.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Callback method to be invoked when the selection disappears from this view.
+     */
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 

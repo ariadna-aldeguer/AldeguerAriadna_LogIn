@@ -2,6 +2,10 @@ package com.example.levi.DB;
 
 import android.provider.BaseColumns;
 
+/**
+ * This class will store in constants variables the database properties
+ */
+
 public class TravelsContract {
     private TravelsContract() {}
     public static class TravelsEntry implements BaseColumns {

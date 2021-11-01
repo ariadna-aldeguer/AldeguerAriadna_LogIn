@@ -11,6 +11,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * An activity class that retrieve from the user the credentials
+ * to get into the application.
+ */
+
 public class LoginActivity extends AppCompatActivity {
 
     @Override
@@ -18,17 +23,20 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        // Busca a Res per id
         TextView txtTitle = findViewById(R.id.txtTitle);
         TextView txtLogin = findViewById(R.id.txtLogin);
         Button btnSigIn = findViewById(R.id.btnAdd);
         EditText txtUserName = findViewById(R.id.txtUserName);
         EditText txtPassword = findViewById(R.id.txtPassword);
-        // Això es perque es mostri el splash screen
+
+        // A sleep to see the splash screen
         SystemClock.sleep(200);
         setTheme(R.style.Theme_Levi);
 
-
+        /**
+         * When there is a click on the "Login" button and the credentials are correct,
+         * home screen will take place.
+         */
         btnSigIn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
 

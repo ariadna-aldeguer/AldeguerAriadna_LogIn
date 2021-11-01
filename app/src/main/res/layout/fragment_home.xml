@@ -26,7 +26,7 @@
             android:shadowRadius="2"
             android:text="User,"
             android:textColor="@color/pink"
-            android:textSize="30dp"
+            android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,7 +43,7 @@
             android:shadowRadius="2"
             android:text="let the journey"
             android:textColor="@color/blue"
-            android:textSize="30dp"
+            android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/txtUser"
@@ -61,7 +61,7 @@
             android:shadowRadius="2"
             android:text="begin"
             android:textColor="@color/blue"
-            android:textSize="30dp"
+            android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/roboto_bold"
             android:text="Suggestions"
             android:textAllCaps="true"
@@ -153,7 +153,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/roboto_bold"
             android:text="Get the covid-19 travel info you need"
             android:textAllCaps="true"
@@ -163,13 +163,14 @@
             app:layout_constraintTop_toBottomOf="@+id/cardView1" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="351dp"
-            android:layout_height="193dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/custom_box_home"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtCovid">
 
@@ -189,7 +190,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/roboto"
                 android:text="Restrictions level from Spain"
                 android:textColor="@color/blue"
@@ -216,9 +217,9 @@
                 android:layout_height="16dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/ic_circle"
-                app:tint="#00A698"
                 app:layout_constraintEnd_toStartOf="@+id/txtLow"
-                app:layout_constraintTop_toBottomOf="@+id/txtRestrictions" />
+                app:layout_constraintTop_toBottomOf="@+id/txtRestrictions"
+                app:tint="#00A698" />
 
             <TextView
                 android:id="@+id/txtModerate"
@@ -239,9 +240,9 @@
                 android:layout_height="16dp"
                 android:layout_marginTop="8dp"
                 android:src="@drawable/ic_circle"
-                app:tint="#D1435B"
                 app:layout_constraintEnd_toStartOf="@+id/txtModerate"
-                app:layout_constraintTop_toBottomOf="@+id/imgGreen" />
+                app:layout_constraintTop_toBottomOf="@+id/imgGreen"
+                app:tint="#D1435B" />
 
             <TextView
                 android:id="@+id/txtMajor"
@@ -262,9 +263,9 @@
                 android:layout_height="16dp"
                 android:layout_marginTop="9dp"
                 android:src="@drawable/ic_circle"
-                app:tint="#FFB54D"
                 app:layout_constraintEnd_toStartOf="@+id/txtMajor"
-                app:layout_constraintTop_toBottomOf="@+id/imgPink" />
+                app:layout_constraintTop_toBottomOf="@+id/imgPink"
+                app:tint="#FFB54D" />
 
             <ImageView
                 android:id="@+id/imgGrey"
@@ -272,9 +273,9 @@
                 android:layout_height="16dp"
                 android:layout_marginTop="8dp"
                 android:src="@drawable/ic_circle"
-                app:tint="#B2B2BF"
                 app:layout_constraintEnd_toStartOf="@+id/txtUnknown"
-                app:layout_constraintTop_toBottomOf="@+id/imgYellow" />
+                app:layout_constraintTop_toBottomOf="@+id/imgYellow"
+                app:tint="#B2B2BF" />
 
             <TextView
                 android:id="@+id/txtUnknown"
@@ -292,15 +293,17 @@
             <Button
                 android:id="@+id/btnMoreInfo"
                 android:layout_width="142dp"
-                android:layout_height="32dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/blue"
                 android:fontFamily="@font/roboto_bold"
                 android:text="More info "
                 android:textColor="@color/white"
-                android:textSize="8sp"
+                android:textSize="11sp"
                 android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtUnknown"
                 tools:text="More info" />

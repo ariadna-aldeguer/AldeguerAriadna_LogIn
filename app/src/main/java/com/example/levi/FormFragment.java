@@ -2,10 +2,8 @@ package com.example.levi;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +15,7 @@ import com.example.levi.DB.TravelsDBHelper;
 import com.example.levi.Model.Travel;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link FormFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * A fragment subclass containing a form to add information into the database.
  */
 public class FormFragment extends Fragment {
 
@@ -32,17 +28,27 @@ public class FormFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-   private TravelsDBHelper dbHelper;
-   private SQLiteDatabase db;
+    // Create the instance of dbHelper
+    private TravelsDBHelper dbHelper;
+    private SQLiteDatabase db;
 
+    /**
+     * Empty constructor of class FormFragment
+     */
     public FormFragment() {
-        // Required empty public constructor
     }
+
+    /**
+     * Constructor of class FormFragment
+     */
     public FormFragment(TravelsDBHelper dbHelper, SQLiteDatabase db) {
         this.dbHelper = dbHelper;
         this.db = db;
     }
 
+    /**
+     * Create a new instance of FormFragment
+     */
     // TODO: Rename and change types and number of parameters
     public static FormFragment newInstance(String param1, String param2) {
         FormFragment fragment = new FormFragment();
@@ -53,6 +59,10 @@ public class FormFragment extends Fragment {
         return fragment;
     }
 
+    /**
+     * Called to do initial creation of the fragment.
+     * @param savedInstanceState: instance of form fragment
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,17 +72,23 @@ public class FormFragment extends Fragment {
         }
     }
 
+    /**
+     * Creates and returns the view for the form fragment
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_form, container, false);
 
         EditText country = view.findViewById(R.id.txtInputCountry);
         EditText city = view.findViewById(R.id.txtInputCity);
         EditText airport = view.findViewById(R.id.txtInputAirport);
-
         Button button = view.findViewById(R.id.btnAdd);
 
+        /**
+         * When there is a click on the "Add travel" button, the travels is added into the database.
+         * If succeeded, a confirmation toast will appear, otherwise an error message will be show.
+         */
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,7 +107,6 @@ public class FormFragment extends Fragment {
                     } else {
                         Toast.makeText(getContext(), "The travel " + ci + " has been saved successfully", Toast.LENGTH_LONG).show();
                     }
-                    refresh();
                 }
                 country.setText("");
                 city.setText("");
@@ -100,10 +115,5 @@ public class FormFragment extends Fragment {
         });
 
         return view;
-    }
-
-    public void refresh(){
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.detach(FormFragment.this).attach(FormFragment.this).commit();
     }
 }
