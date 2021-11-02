@@ -21,7 +21,6 @@ The delivery has two parts:
 
 
 ## Code structure
-
 - `AndroidManifest:` Describes essential information for Android building.
 - `Res:` Includes the resources that Android Application uses:
     - `Drawable:` Includes the icons in the application.
