@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".LoginActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/form_background"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/imgBackLogin"
+                    android:layout_width="450dp"
+                    android:layout_height="700dp"
+                    android:scaleType="fitStart"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.501"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/login_background" />
+
+                <ImageView
+                    android:id="@+id/imgLogo"
+                    android:layout_width="134dp"
+                    android:layout_height="89dp"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginBottom="4dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/logo_text_white" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout2"
+                    android:layout_width="0dp"
+                    android:layout_height="450dp"
+                    android:background="@drawable/login_back"
+                    android:rotationX="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <TextView
+                        android:id="@+id/txtTitle"
+                        android:layout_width="308dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="56dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginEnd="56dp"
+                        android:ems="10"
+                        android:fontFamily="@font/roboto_bold"
+                        android:singleLine="false"
+                        android:text="Hello, let's go start"
+                        android:textColor="@color/pink"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtLogin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="52dp"
+                        android:layout_marginTop="36dp"
+                        android:ems="10"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Login into your Account"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+
+                    <EditText
+                        android:id="@+id/txtUserName"
+                        android:layout_width="302dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:background="@drawable/custom_input"
+                        android:drawablePadding="20dp"
+                        android:ems="10"
+                        android:fontFamily="@font/roboto_bold"
+                        android:hint="Email"
+                        android:inputType="textPersonName"
+                        android:padding="20dp"
+                        android:paddingStart="30dp"
+                        android:paddingEnd="30dp"
+                        android:text="123"
+                        android:textColor="@color/grey"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtLogin" />
+
+                    <EditText
+                        android:id="@+id/txtPassword"
+                        android:layout_width="301dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19dp"
+                        android:background="@drawable/custom_input"
+                        android:drawablePadding="20dp"
+                        android:ems="10"
+                        android:fontFamily="@font/roboto_bold"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:padding="20dp"
+                        android:paddingStart="30dp"
+                        android:paddingEnd="30dp"
+                        android:text="123"
+                        android:textColor="@color/grey"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtUserName"
+                        tools:text="Password" />
+
+                    <Button
+                        android:id="@+id/btnAdd"
+                        android:layout_width="302dp"
+                        android:layout_height="53dp"
+                        android:layout_marginTop="36dp"
+                        android:backgroundTint="@color/blue"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Sign In"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.477"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtPassword"
+                        tools:text="Sign In" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,14 +1,26 @@
-# Application: Login by Ariadna Aldeguer
-This is the first delivery of the "Interface Development" class
+# Application: Veli App by Ariadna Aldeguer
+This is the first part delivery of the "Interface Development" class.
+
+To access the application the credentials are:
+- **User**: 123
+- **Password**: 123
 
 ## What does first delivery do?
-The application shows the login screen.
-It has two editable boxes, one for Username and another one for Password.
-Below there is also a button to sign into the application.
-Finally, on the bottom there is a label that will return a message if the sign was correct.
+The delivery has two parts:
+- M8. Mobile Application Development: 
+  -  Login working correctly 
+  -  Bottom navigation using interaction with fragments
+  -  A database has been set up to store the information, we can delete one item or delete all
+  -  A screen with a form to add data on database
+  -  A screen with a recyclerview to list the data from database
+  -  Information toast has been implented
+-  M7: User Interface Design and Implementation
+    -  A splash screen when the app is loading
+    -  Created a logo for the app and the pattern style has been defined
+    -  Login and form screen design 
+
 
 ## Code structure
-
 - `AndroidManifest:` Describes essential information for Android building.
 - `Res:` Includes the resources that Android Application uses:
     - `Drawable:` Includes the icons in the application.
