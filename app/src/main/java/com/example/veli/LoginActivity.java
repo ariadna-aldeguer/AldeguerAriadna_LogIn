@@ -1,4 +1,4 @@
-package com.example.levi;
+package com.example.veli;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,8 +30,8 @@ public class LoginActivity extends AppCompatActivity {
         EditText txtPassword = findViewById(R.id.txtPassword);
 
         // A sleep to see the splash screen
-        SystemClock.sleep(200);
-        setTheme(R.style.Theme_Levi);
+        SystemClock.sleep(500);
+        setTheme(R.style.Theme_Veli);
 
         /**
          * When there is a click on the "Login" button and the credentials are correct,

@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Levi" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Veli" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue</item>
         <item name="colorPrimaryVariant">@color/light_blue</item>
@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
     <!-- Pantalla d'espera -->
-    <style name="SplashTheme" parent="Theme.Levi">
+    <style name="SplashTheme" parent="Theme.Veli">
         <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
 </resources>

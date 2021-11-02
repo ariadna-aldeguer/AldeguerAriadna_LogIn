@@ -1,4 +1,4 @@
-package com.example.levi;
+package com.example.veli;
 
 import android.os.Bundle;
 

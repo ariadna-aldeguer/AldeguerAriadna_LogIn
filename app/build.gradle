@@ -6,7 +6,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.levi"
+        applicationId "com.example.veli"
         minSdk 21
         targetSdk 31
         versionCode 1

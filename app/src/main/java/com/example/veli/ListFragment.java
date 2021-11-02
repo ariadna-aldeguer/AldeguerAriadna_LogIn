@@ -1,4 +1,4 @@
-package com.example.levi;
+package com.example.veli;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -14,13 +14,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
-import com.example.levi.DB.TravelsDBHelper;
+import com.example.veli.DB.TravelsDBHelper;
 
 import java.util.ArrayList;
 
 
-import com.example.levi.Model.Travel;
+import com.example.veli.Model.Travel;
 /**
  * A fragment subclass that display list of travels
  * using a recycler view and grabbing data from the database.
@@ -117,6 +118,7 @@ public class ListFragment extends Fragment {
                                 //OK METHOD
                                 dbHelper.deleteAllTravels(db);
                                 refresh();
+                                Toast.makeText(getContext(), "Travels successfully deleted", Toast.LENGTH_LONG).show();
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {

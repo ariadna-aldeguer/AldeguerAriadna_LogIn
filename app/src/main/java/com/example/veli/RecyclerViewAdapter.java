@@ -1,4 +1,4 @@
-package com.example.levi;
+package com.example.veli;
 
 import android.annotation.SuppressLint;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,8 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.levi.DB.TravelsDBHelper;
-import com.example.levi.Model.Travel;
+import com.example.veli.DB.TravelsDBHelper;
+import com.example.veli.Model.Travel;
 
 import java.util.ArrayList;
 

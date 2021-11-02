@@ -16,7 +16,7 @@
 
         <ImageView
             android:id="@+id/img_form_back"
-            android:layout_width="408dp"
+            android:layout_width="wrap_content"
             android:layout_height="136dp"
             android:scaleType="fitXY"
             android:src="@drawable/back_form"
@@ -32,11 +32,7 @@
             android:background="@drawable/login_back"
             android:rotationX="0"
             android:visibility="visible">
-            <!--app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.333"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="91dp"-->
+
 
             <TextView
                 android:id="@+id/txtTitleFavorites"
@@ -181,7 +177,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="5dp"
                 android:layout_marginEnd="50dp"
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="@color/blue"
@@ -193,7 +188,6 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtInputAirport"
                 tools:text="Add place" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.levi.Model;
+package com.example.veli.Model;
 
 /**
  * Class that represents a travel

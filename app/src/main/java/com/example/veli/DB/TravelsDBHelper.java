@@ -1,4 +1,4 @@
-package com.example.levi.DB;
+package com.example.veli.DB;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,8 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.levi.DB.TravelsContract.*;
-import com.example.levi.Model.Travel;
+import com.example.veli.DB.TravelsContract.*;
+import com.example.veli.Model.Travel;
 
 import java.util.ArrayList;
 

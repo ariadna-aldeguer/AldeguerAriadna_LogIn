@@ -1,4 +1,4 @@
-package com.example.levi.DB;
+package com.example.veli.DB;
 
 import android.provider.BaseColumns;
 

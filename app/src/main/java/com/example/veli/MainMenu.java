@@ -1,4 +1,4 @@
-package com.example.levi;
+package com.example.veli;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
-import com.example.levi.DB.TravelsDBHelper;
+import com.example.veli.DB.TravelsDBHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /**
