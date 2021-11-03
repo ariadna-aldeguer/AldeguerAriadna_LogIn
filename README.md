@@ -79,7 +79,7 @@ I've used this extra clases:
     - `Layout:` The archive 'Activity_Main' has the design of the Login Screen.
     - `Values:` Contains the archive 'Color' with the primary colors of the app.
 
-## App access
+## App configuration
 - To access the application the credentials are:
   - **User**: 123
   - **Password**: 123
