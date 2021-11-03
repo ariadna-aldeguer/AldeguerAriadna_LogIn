@@ -66,6 +66,10 @@ I've used this extra clases:
 * TravelsDBHelper extended SQLiteOpenHelper which helps to manage database creation and version management.
 * Travel Class to estructure the concept of Travel.
 * ReciclyerViewAdapter which it's a container used for displaying large amount of data sets that can be scrolled very efficiently.
+* Toast to  provides simple feedback about an operation in a small popup. 
+* A ScrollView to make vertically scrollable views.
+* A Bottom navigation to switch easly between fragments screen.
+* A top app bar for future implementation. 
 
 
 ## Code structure
@@ -82,17 +86,23 @@ I've used this extra clases:
 - The applications has a **runnable APK**: 'app-debug'
 
 ## Extra information
-#### Colors
-Color palette
+#### Design 
+Color palette 
 
 ![Theme](https://user-images.githubusercontent.com/71792438/140078233-a80492fc-ed2b-4982-9d4f-ff8db8a15579.png)
 
-#### Extra tasks
+Font Roboto
+
+![Roboto](https://user-images.githubusercontent.com/71792438/140086000-a67aeb07-a5ec-4be5-aa74-7f679e33c247.png)
+
+
+## Extra tasks
 * ScrollView on login screen
 * Possibility of deleting an item
 
 ## Unfinished Tasks
 - [ ] Implementation of editing an item
 - [ ] Scroll view on form screen
+- [ ] Top app bar 
 
 
