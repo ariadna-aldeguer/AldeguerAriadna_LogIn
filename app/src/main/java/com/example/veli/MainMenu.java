@@ -3,10 +3,16 @@ package com.example.veli;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
 
 import com.example.veli.DB.TravelsDBHelper;
+import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /**
@@ -25,6 +31,7 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
 
         // Initialize in home fragment
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
@@ -57,7 +64,25 @@ public class MainMenu extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
             return true;
         });
+
+        SharedPreferences prefs= getSharedPreferences("SharedP", Context.MODE_PRIVATE);
+        /*BottomAppBar upMenu = findViewById(R.id.up_menu);
+        upMenu.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()){
+                case R.id.logout:
+                    //TODO
+                    break;
+            }
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+            return true;
+        });*/
+        Log.i("exsh", prefs.getString("mail", "provaholamarta"));
+
+
     }
+
+
     //Close the db when the activity onDestroy
     @Override
     protected void onDestroy() {

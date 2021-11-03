@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nav"
+        android:id="@+id/logout"
         android:icon="@android:drawable/ic_dialog_dialer"
-        android:title="hola"></item>
+        android:title="Logout"></item>
+    <item
+        android:id="@+id/hola"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:title="Hola"></item>
 </menu>
