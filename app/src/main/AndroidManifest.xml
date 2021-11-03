@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.login">
+    package="com.example.veli" >
 
     <application
         android:allowBackup="true"
@@ -8,15 +8,23 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Login">
+        android:theme="@style/Theme.Veli" >
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name="com.example.veli.MainMenu"
+            android:exported="true" />
+        <activity
+            android:name="com.example.veli.LoginActivity"
+            android:exported="true"
+            android:theme="@style/SplashTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
