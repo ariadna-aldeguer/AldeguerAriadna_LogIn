@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Veli</string>
+    <string name="button">Botón</string>
+    <string name="choose_language">Selecciona un idioma</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="languages">
+        <!-- <item>Select to choose a language</item> -->
+        <item name="English">Inglés</item>
+        <item name="Spanish">Español</item>
+    </string-array>
+    <string name="txtTitleFavorites">Añade tus favoritos</string>
+    <string name="txtSubFavorites">Guarda tus favorites y nunca te olvides de ellos</string>
+    <string name="txtInputCountry">Entra el país de destino</string>
+    <string name="txtCountry">País</string>
+    <string name="txtInputCity">Entra la ciudad de destino</string>
+    <string name="txtCity">Ciudad</string>
+    <string name="txtInputAirport">Entra el aeropuerto de destino</string>
+    <string name="btnAddPlace">Añadir sitio</string>
+    <string name="txtAirport">Aeropuerto</string>
+    <string name="txtUser">Usuario,</string>
+    <string name="txtJourney">empieza aquí</string>
+    <string name="txtBegin">el viaje</string>
+    <string name="txtSuggestions">Suggestions</string>
+    <string name="txtCovid">Get the covid-19 travel info you need</string>
+    <string name="txtRestrictions">Restrictions level from Spain</string>
+    <string name="txtLow">Low</string>
+    <string name="txtModerate">Moderate</string>
+    <string name="txtMajor">Major</string>
+    <string name="txtUnknown">Unknown</string>
+    <string name="btnMoreInfo">More info </string>
+
+</resources>

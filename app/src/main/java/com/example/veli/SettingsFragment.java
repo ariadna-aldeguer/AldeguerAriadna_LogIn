@@ -1,9 +1,13 @@
 package com.example.veli;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,20 +83,45 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+        spinner.setSelection(0, false);
+
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View selectedItemView, int position, long id) {
+                SharedPreferences prefs = getContext().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
+                String language = (String) adapterView.getSelectedItem().toString();
+                Log.i("error", "hola: " );
+                Log.i("error", "hola: " + language);
+                if(language.equals("Spanish")){
+                    prefs.edit().putString("language", "es");
+                } else {
+                    prefs.edit().putString("language", "en");
+                }
+                //((MainMenu)getActivity()).setAppLocale("en");
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+        });
         return view;
     }
 
     /**
-     * Callback method to be invoked when an item in this view has been selected.
+     * Fragment screen it refresh.
      */
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-        Toast.makeText(adapterView.getContext(), (String) adapterView.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
+    public void refresh(){
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.detach(SettingsFragment.this).attach(SettingsFragment.this).commit();
     }
 
-    /**
-     * Callback method to be invoked when the selection disappears from this view.
-     */
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+    }
+
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 

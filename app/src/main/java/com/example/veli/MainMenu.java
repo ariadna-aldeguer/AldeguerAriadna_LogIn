@@ -5,8 +5,12 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +18,8 @@ import android.view.View;
 import com.example.veli.DB.TravelsDBHelper;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.Locale;
 
 /**
  * An activity that handles the interactions between fragment and bottom navigation
@@ -30,6 +36,9 @@ public class MainMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences prefs = getSharedPreferences("SharedP", Context.MODE_PRIVATE);
+        //setAppLocale(prefs.getString("language", ""));;
+        Log.i("error", "hola" + prefs.getString("language", ""));
         setContentView(R.layout.activity_main_menu);
 
 
@@ -65,7 +74,6 @@ public class MainMenu extends AppCompatActivity {
             return true;
         });
 
-        SharedPreferences prefs= getSharedPreferences("SharedP", Context.MODE_PRIVATE);
         /*BottomAppBar upMenu = findViewById(R.id.up_menu);
         upMenu.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()){
@@ -91,4 +99,20 @@ public class MainMenu extends AppCompatActivity {
         super.onDestroy();
     }
 
+    /**
+     * Change the language of the applications
+     * @param localeCode: language
+     */
+    protected void setAppLocale(String localeCode){
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration config = res.getConfiguration();
+
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR1){
+            config.setLocale(new Locale(localeCode.toLowerCase()));
+        } else {
+            config.locale = new Locale(localeCode.toLowerCase());
+        }
+        res.updateConfiguration(config, dm);
+    }
 }
