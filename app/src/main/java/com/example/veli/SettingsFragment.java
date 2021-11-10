@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -72,6 +73,7 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        SharedPreferences prefs = getContext().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
         Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -89,21 +91,30 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View selectedItemView, int position, long id) {
-                SharedPreferences prefs = getContext().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
-                String language = (String) adapterView.getSelectedItem().toString();
-                Log.i("error", "hola: " );
-                Log.i("error", "hola: " + language);
-                if(language.equals("Spanish")){
-                    prefs.edit().putString("language", "es");
-                } else {
-                    prefs.edit().putString("language", "en");
+                Log.i("error", "" + position);
+
+                if(position == 1){
+                    prefs.edit().putString("language", "en").commit();
+
+
+                } else if (position == 2){
+                    prefs.edit().putString("language", "es").commit();
+                    Log.i("error", "" + position);
                 }
-                //((MainMenu)getActivity()).setAppLocale("en");
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
                 // your code here
+            }
+        });
+
+        Button btnSavePreferences = view.findViewById(R.id.btnSavePreferences);
+        btnSavePreferences.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainMenu)getActivity()).setAppLocale(prefs.getString("language", ""));
+                refresh();
             }
         });
         return view;

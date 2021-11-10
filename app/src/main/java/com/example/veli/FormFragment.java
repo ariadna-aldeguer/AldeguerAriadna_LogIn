@@ -83,7 +83,7 @@ public class FormFragment extends Fragment {
         EditText country = view.findViewById(R.id.txtInputCountry);
         EditText city = view.findViewById(R.id.txtInputCity);
         EditText airport = view.findViewById(R.id.txtInputAirport);
-        Button button = view.findViewById(R.id.btnAdd);
+        Button button = view.findViewById(R.id.btnSingIn);
 
         /**
          * When there is a click on the "Add travel" button, the travels is added into the database.

@@ -85,7 +85,6 @@ public class MainMenu extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
             return true;
         });*/
-        Log.i("exsh", prefs.getString("mail", "provaholamarta"));
 
 
     }

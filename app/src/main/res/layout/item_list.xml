@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/recyclerView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="10dp"
@@ -31,7 +30,7 @@
             android:ems="10"
             android:fontFamily="@font/roboto_bold"
             android:gravity="start|center_vertical"
-            android:text="City"
+            android:text="@string/txtCity"
             android:textAllCaps="true"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -46,7 +45,7 @@
             android:layout_marginTop="8dp"
             android:ellipsize="end"
             android:fontFamily="@font/roboto"
-            android:text="Country"
+            android:text="@string/txtCountry"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtCityList" />
 
@@ -59,7 +58,7 @@
             android:fontFamily="@font/roboto"
             android:maxLines="1"
             android:singleLine="true"
-            android:text="Airport"
+            android:text="@string/txtAirport"
             android:textAllCaps="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -102,13 +101,12 @@
             android:layout_height="42dp"
             android:backgroundTint="@color/blue"
             android:fontFamily="@font/roboto_bold"
-            android:text="Edit"
             android:textColor="@color/white"
             android:textSize="11sp"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Edit" />
+            tools:text="@string/btnEdit" />
 
         <Button
             android:id="@+id/btnDelete"
@@ -116,7 +114,6 @@
             android:layout_height="42dp"
             android:backgroundTint="@color/blue"
             android:fontFamily="@font/roboto_bold"
-            android:text="Delete"
             android:textColor="@color/white"
             android:textSize="11sp"
             android:visibility="visible"
@@ -124,7 +121,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnEdit"
             app:layout_constraintVertical_bias="1.0"
-            tools:text="Delete" />
+            tools:text="@string/btnDelete" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

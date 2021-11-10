@@ -57,7 +57,7 @@
                     app:layout_constraintStart_toStartOf="parent">
 
                     <TextView
-                        android:id="@+id/txtTitle"
+                        android:id="@+id/txtTitleLogin"
                         android:layout_width="308dp"
                         android:layout_height="50dp"
                         android:layout_marginStart="56dp"
@@ -66,7 +66,7 @@
                         android:ems="10"
                         android:fontFamily="@font/roboto_bold"
                         android:singleLine="false"
-                        android:text="Hello, let's go start"
+                        android:text="@string/txtTitleLogin"
                         android:textColor="@color/pink"
                         android:textSize="30sp"
                         android:textStyle="bold"
@@ -75,19 +75,19 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/txtLogin"
+                        android:id="@+id/txtSubtitleLogin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="52dp"
                         android:layout_marginTop="36dp"
                         android:ems="10"
                         android:fontFamily="@font/roboto_bold"
-                        android:text="Login into your Account"
+                        android:text="@string/txtSubtitleLogin"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+                        app:layout_constraintTop_toBottomOf="@+id/txtTitleLogin" />
 
                     <EditText
                         android:id="@+id/txtMail"
@@ -108,7 +108,7 @@
                         android:textSize="12sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/txtLogin" />
+                        app:layout_constraintTop_toBottomOf="@+id/txtSubtitleLogin" />
 
                     <EditText
                         android:id="@+id/txtPassword"
@@ -133,7 +133,7 @@
                         tools:text="Password" />
 
                     <Button
-                        android:id="@+id/btnAdd"
+                        android:id="@+id/btnSingIn"
                         android:layout_width="302dp"
                         android:layout_height="53dp"
                         android:layout_marginTop="36dp"

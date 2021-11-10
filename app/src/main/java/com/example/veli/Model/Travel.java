@@ -1,10 +1,12 @@
 package com.example.veli.Model;
 
+import java.io.Serializable;
+
 /**
  * Class that represents a travel
  */
 
-public class Travel {
+public class Travel implements Serializable {
 
     private String country;
     private String city;

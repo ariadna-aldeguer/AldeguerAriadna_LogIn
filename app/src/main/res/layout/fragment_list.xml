@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/txtTitleFavorites2"
+            android:id="@+id/txtTitleFavoritesList"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginTop="28dp"
@@ -23,7 +23,7 @@
             android:shadowDx="3"
             android:shadowDy="3"
             android:shadowRadius="2"
-            android:text="Ariadna, your favorites"
+            android:text="@string/txtTitleFavoritesList"
             android:textColor="@color/blue"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +43,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtTitleFavorites2">
+            app:layout_constraintTop_toBottomOf="@+id/txtTitleFavoritesList">
 
         </androidx.recyclerview.widget.RecyclerView>
 
@@ -60,14 +60,13 @@
             android:fontFamily="@font/roboto_bold"
             android:maxLines="1"
             android:singleLine="true"
-            android:text="Delete all travels"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="Delete all travels" />
+            tools:text="@string/btnDeleteAllTravels" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

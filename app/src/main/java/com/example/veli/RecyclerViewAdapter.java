@@ -2,6 +2,7 @@ package com.example.veli;
 
 import android.annotation.SuppressLint;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +11,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.veli.DB.TravelsDBHelper;
 import com.example.veli.Model.Travel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -82,6 +85,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 list.refresh();
             }
         });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppCompatActivity app = (AppCompatActivity) view.getContext();
+                DetailTravelFragment detailFragment = new DetailTravelFragment();
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("Travel", array_travel.get(position));
+
+                app.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, detailFragment).commit();
+
+            }
+        });
+
+
     }
 
     /**

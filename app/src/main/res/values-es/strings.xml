@@ -5,11 +5,12 @@
     <string name="choose_language">Selecciona un idioma</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string-array name="languages">
-        <!-- <item>Select to choose a language</item> -->
-        <item name="English">Inglés</item>
-        <item name="Spanish">Español</item>
-    </string-array>
+
+    <!--Login Fragment-->
+    <string name="txtTitleLogin">Hola, empecemos</string>
+    <string name="txtSubtitleLogin">Entra en tu Cuenta</string>
+
+    <!--Form Fragment-->
     <string name="txtTitleFavorites">Añade tus favoritos</string>
     <string name="txtSubFavorites">Guarda tus favorites y nunca te olvides de ellos</string>
     <string name="txtInputCountry">Entra el país de destino</string>
@@ -17,18 +18,45 @@
     <string name="txtInputCity">Entra la ciudad de destino</string>
     <string name="txtCity">Ciudad</string>
     <string name="txtInputAirport">Entra el aeropuerto de destino</string>
-    <string name="btnAddPlace">Añadir sitio</string>
     <string name="txtAirport">Aeropuerto</string>
+
+    <!--Home Fragment-->
     <string name="txtUser">Usuario,</string>
     <string name="txtJourney">empieza aquí</string>
     <string name="txtBegin">el viaje</string>
-    <string name="txtSuggestions">Suggestions</string>
-    <string name="txtCovid">Get the covid-19 travel info you need</string>
-    <string name="txtRestrictions">Restrictions level from Spain</string>
-    <string name="txtLow">Low</string>
-    <string name="txtModerate">Moderate</string>
-    <string name="txtMajor">Major</string>
-    <string name="txtUnknown">Unknown</string>
-    <string name="btnMoreInfo">More info </string>
+    <string name="txtSuggestions">Sugerencias</string>
+    <string name="txtCovid">Revisa la información sobre el covid-19 </string>
+    <string name="txtRestrictions">Nivel de restricciones de España</string>
+    <string name="txtLow">Bajo</string>
+    <string name="txtModerate">Moderado</string>
+    <string name="txtMajor">Alto</string>
+    <string name="txtUnknown">Desconocido</string>
+
+    <!--Settings Fragment -->
+    <string-array name="languages">
+        <item>Escoge el idioma</item>
+        <item name="en">Inglés</item>
+        <item name="es">Castellano</item>
+    </string-array>
+    <string name="txtTitleSettings">Ajustes</string>
+    <string name="textLanguage">Idioma</string>
+    <string name="textMode">Modo Noche</string>
+
+    <!--Fragment List-->
+    <string name="txtTitleFavoritesList">Ariadna, tus favoritos</string>
+
+    <!-- Detail Fragment -->
+    <string name="txtCountryDetail">País</string>
+    <string name="txtCityDetail">Ciudad</string>
+    <string name="txtAirportDetail">Aeropuerto</string>
+
+    <!-- Buttons -->
+    <string name="btnDeleteAllTravels">Borrar todos los viajes</string>
+    <string name="btnSave">Guardar</string>
+    <string name="btnMoreInfo">Más información </string>
+    <string name="btnAddPlace">Añadir sitio</string>
+    <string name="btnEdit">Editar</string>
+    <string name="btnDelete">Borrar</string>
+    <string name="btnSingIn">Acceder</string>
 
 </resources>
