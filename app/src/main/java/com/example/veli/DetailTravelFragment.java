@@ -7,7 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.veli.Model.Travel;
 
@@ -67,10 +68,22 @@ public class DetailTravelFragment extends Fragment {
         Bundle bundle = getArguments();
         Travel travel = (Travel) bundle.getSerializable("Travel");
 
-        TextView country = view.findViewById(R.id.txtCountryDetail);
+        EditText country = view.findViewById(R.id.txtCountryEdit);
+        country.setText(travel.getCountry());
+        EditText city = view.findViewById(R.id.txtCityEdit);
+        city.setText(travel.getCity());
+        EditText airport = view.findViewById(R.id.txtAirportEdit);
+        airport.setText(travel.getAirport());
 
-        //txtcontact.setText(travel.getNom());
-
+        Button btnEdit = view.findViewById(R.id.btnEditDetail);
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                country.setEnabled(true);
+                city.setEnabled(true);
+                airport.setEnabled(true);
+            }
+        });
 
         return view;
     }

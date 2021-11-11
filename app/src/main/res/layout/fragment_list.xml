@@ -60,6 +60,7 @@
             android:fontFamily="@font/roboto_bold"
             android:maxLines="1"
             android:singleLine="true"
+            android:text="@string/btnDeleteAllTravels"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:visibility="visible"

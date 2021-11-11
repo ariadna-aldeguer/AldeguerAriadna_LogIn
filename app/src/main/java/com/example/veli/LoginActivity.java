@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,22 +23,23 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // A sleep to see the splash screen
+        SystemClock.sleep(200);
+        setTheme(R.style.Theme_Veli);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        TextView txtTitle = findViewById(R.id.txtTitleLogin);
-        TextView txtLogin = findViewById(R.id.txtSubtitleLogin);
         Button btnSigIn = findViewById(R.id.btnSingIn);
         EditText textMail = findViewById(R.id.txtMail);
         EditText txtPassword = findViewById(R.id.txtPassword);
 
-        // A sleep to see the splash screen
-        SystemClock.sleep(500);
-        setTheme(R.style.Theme_Veli);
+
 
         // If the user already access into the app, goes directly to home screen
         SharedPreferences prefs = getSharedPreferences("SharedP", Context.MODE_PRIVATE);
-        if(prefs.getBoolean("login", true)) startHome();
+
+        if(prefs.getBoolean("login", false)) startHome();
 
 
         /**
@@ -69,9 +71,12 @@ public class LoginActivity extends AppCompatActivity {
      * @param prefs: instance of SP
      * @param mail: user
      */
-    public void savePreferences(SharedPreferences prefs, String mail){
-        prefs.edit().putString("mail", mail);
-        prefs.edit().putBoolean("login", true);
-        prefs.edit().commit();
+    public void savePreferences(SharedPreferences prefs, String mail) {
+        SharedPreferences.Editor prefsEdits = prefs.edit();
+
+        prefsEdits.putString("mail", mail);
+        prefsEdits.putBoolean("login", true);
+
+        prefsEdits.commit();
     }
 }

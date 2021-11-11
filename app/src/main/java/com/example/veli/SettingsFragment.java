@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.biometric.BiometricPrompt;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -16,6 +19,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.concurrent.Executor;
 
 /**
  * A fragment subclass for settings screen.
@@ -31,6 +36,11 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private Executor executor;
+    private BiometricPrompt biometricPrompt;
+    private BiometricPrompt.PromptInfo promptInfo;
+
     private Spinner spinner;
 
     /**
@@ -72,9 +82,40 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
         SharedPreferences prefs = getContext().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
-        View view = inflater.inflate(R.layout.fragment_settings, container, false);
+        SharedPreferences.Editor prefsEdit = prefs.edit();
+
+        executor = ContextCompat.getMainExecutor(getContext());
+        biometricPrompt = new BiometricPrompt(this, executor, new BiometricPrompt.AuthenticationCallback() {
+            @Override
+            public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
+                super.onAuthenticationError(errorCode, errString);
+                //Error
+            }
+
+            @Override
+            public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
+                super.onAuthenticationSucceeded(result);
+                //Succed
+                prefsEdit .clear().commit();
+            }
+
+            @Override
+            public void onAuthenticationFailed() {
+                super.onAuthenticationFailed();
+                //Failed
+            }
+        });
+
+        promptInfo = new BiometricPrompt.PromptInfo.Builder()
+                .setTitle("Biometric login for my app")
+                .setSubtitle("Log in using your biometric credential")
+                .setNegativeButtonText("Use account password")
+                .build();
+
+
         Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter;
@@ -91,15 +132,10 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View selectedItemView, int position, long id) {
-                Log.i("error", "" + position);
-
                 if(position == 1){
                     prefs.edit().putString("language", "en").commit();
-
-
                 } else if (position == 2){
                     prefs.edit().putString("language", "es").commit();
-                    Log.i("error", "" + position);
                 }
             }
 
@@ -115,6 +151,15 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
             public void onClick(View view) {
                 ((MainMenu)getActivity()).setAppLocale(prefs.getString("language", ""));
                 refresh();
+            }
+        });
+
+
+        Button btnReset = view.findViewById(R.id.btnReset);
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                biometricPrompt.authenticate(promptInfo);
             }
         });
         return view;

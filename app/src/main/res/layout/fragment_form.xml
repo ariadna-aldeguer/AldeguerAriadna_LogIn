@@ -181,7 +181,7 @@
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="@color/blue"
                 android:fontFamily="@font/roboto_bold"
-                android:text="Add place"
+                android:text="@string/btnAddPlace"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:visibility="visible"

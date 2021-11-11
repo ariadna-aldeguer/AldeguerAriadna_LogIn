@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -94,6 +95,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("Travel", array_travel.get(position));
 
+                detailFragment.setArguments(bundle);
+
                 app.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, detailFragment).commit();
 
             }
@@ -120,7 +123,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView txtCountry;
         TextView txtAirport;
         ImageView imgList;
-        Button btnDelete;
+        ImageButton btnDelete;
         Button btnEdit;
 
         public ViewHolder(@NonNull View view) {
@@ -130,7 +133,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             txtAirport = view.findViewById(R.id.txtAirportList);
             imgList = view.findViewById(R.id.imgList);
             btnDelete = view.findViewById(R.id.btnDelete);
-            btnEdit = view.findViewById(R.id.btnEdit);
         }
     }
 }
