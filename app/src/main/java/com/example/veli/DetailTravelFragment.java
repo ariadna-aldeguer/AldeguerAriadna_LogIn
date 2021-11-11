@@ -1,5 +1,6 @@
 package com.example.veli;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.veli.DB.TravelsDBHelper;
 import com.example.veli.Model.Travel;
 
 /**
@@ -28,8 +31,20 @@ public class DetailTravelFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    // Create the instance of dbHelper
+    private TravelsDBHelper dbHelper;
+    private SQLiteDatabase db;
+
     public DetailTravelFragment() {
         // Required empty public constructor
+    }
+
+    /**
+     * Constructor of class FormFragment
+     */
+    public DetailTravelFragment(TravelsDBHelper dbHelper, SQLiteDatabase db) {
+        this.dbHelper = dbHelper;
+        this.db = db;
     }
 
     /**
@@ -75,16 +90,41 @@ public class DetailTravelFragment extends Fragment {
         EditText airport = view.findViewById(R.id.txtAirportEdit);
         airport.setText(travel.getAirport());
 
-        Button btnEdit = view.findViewById(R.id.btnEditDetail);
-        btnEdit.setOnClickListener(new View.OnClickListener() {
+        Button btnDetail = view.findViewById(R.id.btnDetail);
+        btnDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                country.setEnabled(true);
-                city.setEnabled(true);
-                airport.setEnabled(true);
+                if(btnDetail.getText().equals(getString(R.string.btnEdit))) {
+                    enable(country, city, airport, true);
+                    btnDetail.setText(getString(R.string.btnSave));
+                } else if (btnDetail.getText().equals(getString(R.string.btnSave))){
+                    enable(country, city, airport, false);
+                    btnDetail.setText(getString(R.string.btnEdit));
+
+                    String co = country.getText().toString();
+                    String ci = city.getText().toString();
+                    String ai = airport.getText().toString();
+
+                    Travel newTravel = new Travel(co, ci, ai);
+
+                    if (co.equals("") && ci.equals("") && ai.equals("")) {
+                        Toast.makeText(getContext(), getString(R.string.property), Toast.LENGTH_LONG).show();
+                    } else {
+                        dbHelper.updateTravel(db, travel, newTravel);
+                        Toast.makeText(getContext(), getString(R.string.save), Toast.LENGTH_LONG).show();
+                    }
+
+                }
+
+
             }
         });
 
         return view;
+    }
+    public static void enable(EditText country, EditText city, EditText airport, boolean change){
+        country.setEnabled(change);
+        city.setEnabled(change);
+        airport.setEnabled(change);
     }
 }

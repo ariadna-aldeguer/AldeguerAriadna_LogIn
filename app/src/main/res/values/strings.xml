@@ -58,4 +58,9 @@
     <string name="btnEdit">Edit</string>
     <string name="btnDelete">Delete</string>
     <string name="btnSingIn">Sing in</string>
+    <string name="btnReset">Reset</string>
+    
+    <!-- Toasts -->
+    <string name="property">You need to introduce at least one property</string>
+    <string name="save">The travel has been saved successfully</string>
 </resources>

@@ -76,6 +76,21 @@ public class TravelsDBHelper extends SQLiteOpenHelper {
             Log.i("sql","Database is closed");
         }
     }
+    public void updateTravel(SQLiteDatabase db, Travel oldTravel, Travel newTravel){
+        //Check the bd is open
+        if (db.isOpen()){
+            //Creation of the register for insert object with the content values
+            ContentValues values = new ContentValues();
+            db.execSQL("UPDATE " + TravelsEntry.TABLE_NAME + " SET " +
+                    TravelsEntry.COLUMN_NAME_COUNTRY + " = '" + newTravel.getCountry() + "', " +
+                    TravelsEntry.COLUMN_NAME_CITY + " = '" + newTravel.getCity() + "', " +
+                    TravelsEntry.COLUMN_NAME_AIRPORT + " = '" + newTravel.getAirport() + "'" +
+                    " WHERE ID = " + oldTravel.getId());
+        } else {
+            Log.i("sql","Database is closed");
+        }
+    }
+
 
     /**
      * Getter of travels of the database

@@ -90,7 +90,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View view) {
                 AppCompatActivity app = (AppCompatActivity) view.getContext();
-                DetailTravelFragment detailFragment = new DetailTravelFragment();
+                DetailTravelFragment detailFragment = new DetailTravelFragment(dbHelper, db);
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("Travel", array_travel.get(position));

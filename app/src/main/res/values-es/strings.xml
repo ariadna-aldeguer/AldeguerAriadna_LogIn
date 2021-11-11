@@ -58,5 +58,10 @@
     <string name="btnEdit">Editar</string>
     <string name="btnDelete">Borrar</string>
     <string name="btnSingIn">Acceder</string>
+    <string name="btnReset">Restablecer</string>
+
+    <!-- Toasts -->
+    <string name="property">Necesitas introducir al menos una propiedad</string>
+    <string name="save">El viaje se ha guardado correctamente</string>
 
 </resources>
