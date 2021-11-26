@@ -1,5 +1,5 @@
 # Application: Veli App by Ariadna Aldeguer
-This is the first part delivery of the "Interface Development" class. 
+This is the second part delivery of the "Interface Development" class. 
 
 The application allows you to save travel destinations. 
 
@@ -21,6 +21,18 @@ The delivery has two parts:
     -  A splash screen when the app is loading
     -  Created a logo for the app and the pattern style has been defined
     -  Login and form screen design 
+ 
+## What does second delivery do? 
+The delivery has two parts:
+- M8. Mobile Application Development: 
+  -  Impletentation of Shared Preferences
+  -  Multilanguage options
+  -  Clickable item on recycler view
+  -  A screen to see item on detail and edit it
+-  M7: User Interface Design and Implementation
+    -  Settings screen with multilange options and reset preferences.
+    -  Implementation of biometric for delete preferences.
+    -  Design of detail item 
 
 ## Screenshots 
 #### Splash Screen
@@ -52,10 +64,20 @@ We can delete one item or delete them all. The latter asks for confirmation to p
 ![List_Screen](https://user-images.githubusercontent.com/71792438/140078968-f5653530-ecf4-4449-8b5b-cb65abaa5ed9.png)
 
 
-#### Settings Screen
-Basic application settings, such as language or day/night theme.
 
-![Settings_Screen](https://user-images.githubusercontent.com/71792438/140075510-b8e00c20-9c96-449b-8a95-9bfc8635deb8.png)
+#### Detail Travel Screen
+Display detailed information about a trip. It can be edited and saved.
+
+![Detail_Edit_Screen](https://user-images.githubusercontent.com/71792438/143624177-86e55fd8-2bfd-4418-8167-25a1614d98db.jpg)!   [Detail_Save_Screen](https://user-images.githubusercontent.com/71792438/143624185-a3e1af57-50d5-4e19-9a52-504e2a3a6669.jpg)
+
+
+
+#### Settings Screen
+Basic application settings, such as language or day/night theme. The options can be saved and reset.
+
+![Settings_Screen](https://user-images.githubusercontent.com/71792438/143624008-adcfcc33-b49c-42b0-b13d-1b4f5316ac11.jpg)
+
+
 
 ## Technologies
 This project is developed with android studio (java).
@@ -70,14 +92,21 @@ I've used this extra clases:
 * A ScrollView to make vertically scrollable views.
 * A Bottom navigation to switch easly between fragments screen.
 * A top app bar for future implementation. 
+* A biometric dialog to user authentication.
+* A SharedPreferences to log in and save language preferences, it object contain a key-value pairs and provides simple methods to read and write them.
+* A Budle class that allows to create an information box and pass it between activities or fragments.
+* Set language based on locale and multilanguage options.
 
 
 ## Code structure
 - `AndroidManifest:` Describes essential information for Android building.
 - `Res:` Includes the resources that Android Application uses:
     - `Drawable:` Includes the icons in the application.
+    - `Font:` External fonts.
     - `Layout:` The archive 'Activity_Main' has the design of the Login Screen.
-    - `Values:` Contains the archive 'Color' with the primary colors of the app.
+    - `Menu:` Design of top and bottom menu.
+    - `Mimap` Design of logo
+    - `Values:` Contains the archive 'Color' with the primary colors of the app. And the archive 'Strings' for multilanguage.
 
 ## App configuration
 - To access the application the credentials are:
@@ -97,11 +126,11 @@ Font Roboto
 
 
 ## Extra tasks
-* ScrollView on login screen
-* Possibility of deleting an item
+* [X] ScrollView on login screen
+* [X] Possibility of deleting an item
+* [X] Edit item 
 
 ## Unfinished Tasks
-- [ ] Implementation of editing an item
 - [ ] Scroll view on form screen
 - [ ] Top app bar 
 
