@@ -41,9 +41,15 @@
     <string name="txtTitleSettings">Settings</string>
     <string name="textLanguage">Language</string>
     <string name="textMode">Night Mode</string>
+    <string name="biometricTitle">Identify with biometric</string>
+    <string name="biometricSubtitle">In order to clear your preferences, you must log in </string>
+    <string name="biometricPassword">Use account password</string>
+
 
     <!--Fragment List-->
-    <string name="txtTitleFavoritesList">Ariadna, your favorites</string>
+    <string name="txtTitleFavoritesList">Marta, your favorites</string>
+    <string name="alertDelete">All travels will be delete permanently</string>
+    <string name="confirmation">Do you want to continue?</string>
 
     <!-- Detail Fragment -->
     <string name="txtCountryDetail">Country</string>
@@ -63,4 +69,10 @@
     <!-- Toasts -->
     <string name="property">You need to introduce at least one property</string>
     <string name="save">The travel has been saved successfully</string>
+    <string name="errorAuthentication">Authentication error: </string>
+    <string name="failedAuthentication">Failed authentication</string>
+    <string name="errorProperties">You need to introduce at least one property"</string>
+    <string name="deletedTravels">Travels successfully deleted</string>
+    <string name="loginIncorrect">User or password are incorrect</string>
+
 </resources>

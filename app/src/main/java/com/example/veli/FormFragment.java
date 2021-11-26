@@ -19,15 +19,6 @@ import com.example.veli.Model.Travel;
  */
 public class FormFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     // Create the instance of dbHelper
     private TravelsDBHelper dbHelper;
     private SQLiteDatabase db;
@@ -53,8 +44,6 @@ public class FormFragment extends Fragment {
     public static FormFragment newInstance(String param1, String param2) {
         FormFragment fragment = new FormFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -66,10 +55,6 @@ public class FormFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     /**
@@ -96,17 +81,11 @@ public class FormFragment extends Fragment {
                 String ci = city.getText().toString();
                 String ai = airport.getText().toString();
                 if (co.equals("") && ci.equals("") && ai.equals("")) {
-                    Toast.makeText(getContext(), "You need to introduce at least one property", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), getString(R.string.errorProperties), Toast.LENGTH_LONG).show();
                 } else {
                     Travel travel = new Travel(co, ci, ai);
                     dbHelper.insertTravel(db, travel);
-                    if (!co.equals("")){
-                        Toast.makeText(getContext(), "The travel " + co + " has been saved successfully", Toast.LENGTH_LONG).show();
-                    } else if (!ci.equals("")){
-                        Toast.makeText(getContext(), "The travel " + ci + " has been saved successfully", Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(getContext(), "The travel " + ci + " has been saved successfully", Toast.LENGTH_LONG).show();
-                    }
+                    Toast.makeText(getContext(), getString(R.string.save), Toast.LENGTH_LONG).show();
                 }
                 country.setText("");
                 city.setText("");

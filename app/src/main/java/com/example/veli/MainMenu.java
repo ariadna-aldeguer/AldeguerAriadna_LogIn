@@ -37,8 +37,7 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences prefs = getSharedPreferences("SharedP", Context.MODE_PRIVATE);
-        //setAppLocale(prefs.getString("language", ""));;
-        Log.i("error", "hola" + prefs.getString("language", ""));
+        setAppLocale(prefs.getString("language", ""));;
         setContentView(R.layout.activity_main_menu);
 
 

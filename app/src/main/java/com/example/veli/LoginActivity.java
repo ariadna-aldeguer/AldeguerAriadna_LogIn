@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                     savePreferences(prefs, textMail.getText().toString());
                     startHome();
                 } else {
-                    Toast.makeText(getApplicationContext(), "The password is incorrect", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.loginIncorrect), Toast.LENGTH_LONG).show();
                     txtPassword.setText("");
                 }
             }

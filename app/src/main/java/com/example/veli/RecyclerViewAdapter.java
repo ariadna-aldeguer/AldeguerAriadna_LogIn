@@ -76,7 +76,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.txtCountry.setText(array_travel.get(position).getCountry());
 
         /**
-         * This bottom will delete a travel on the db.
+         * This button will delete a travel on the db.
          */
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -86,17 +86,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 list.refresh();
             }
         });
+
+        /**
+         * When clicking on an item, it will display detailed information about it.
+         */
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AppCompatActivity app = (AppCompatActivity) view.getContext();
                 DetailTravelFragment detailFragment = new DetailTravelFragment(dbHelper, db);
 
+                // Create a new empty bundle
                 Bundle bundle = new Bundle();
+                // Inserts a Serializable value on key format
                 bundle.putSerializable("Travel", array_travel.get(position));
-
+                // Supply the construction arguments for the fragment
                 detailFragment.setArguments(bundle);
-
+                // Start fragment associated
                 app.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, detailFragment).commit();
 
             }

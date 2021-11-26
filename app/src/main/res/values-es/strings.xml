@@ -7,8 +7,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!--Login Fragment-->
-    <string name="txtTitleLogin">Hola, empecemos</string>
-    <string name="txtSubtitleLogin">Entra en tu Cuenta</string>
+    <string name="txtTitleLogin">Hola de nuevo!</string>
+    <string name="txtSubtitleLogin">Accede a tu Cuenta</string>
 
     <!--Form Fragment-->
     <string name="txtTitleFavorites">Añade tus favoritos</string>
@@ -41,9 +41,14 @@
     <string name="txtTitleSettings">Ajustes</string>
     <string name="textLanguage">Idioma</string>
     <string name="textMode">Modo Noche</string>
+    <string name="biometricTitle">Identifíquese con biometric</string>
+    <string name="biometricSubtitle">Para poder borrar las preferencias, debe identificarse</string>
+    <string name="biometricPassword">Utilizar usuario y contraseña</string>
 
     <!--Fragment List-->
-    <string name="txtTitleFavoritesList">Ariadna, tus favoritos</string>
+    <string name="txtTitleFavoritesList">Marta, tus favoritos</string>
+    <string name="alertDelete">Todos los viajes serán borrados de forma permanente</string>
+    <string name="confirmation">¿Quiere continuar?</string>
 
     <!-- Detail Fragment -->
     <string name="txtCountryDetail">País</string>
@@ -63,5 +68,10 @@
     <!-- Toasts -->
     <string name="property">Necesitas introducir al menos una propiedad</string>
     <string name="save">El viaje se ha guardado correctamente</string>
+    <string name="errorAuthentication">Error de autentificación: </string>
+    <string name="failedAuthentication">La autentificación ha fallado</string>
+    <string name="errorProperties">Necesitas introducir al menos una propiedad</string>
+    <string name="deletedTravels">Los viajes se han borrado correctamente</string>
+    <string name="loginIncorrect">El usuario o la contraseña son incorrectas</string>
 
 </resources>

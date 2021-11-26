@@ -22,19 +22,13 @@ import com.example.veli.Model.Travel;
  */
 public class DetailTravelFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     // Create the instance of dbHelper
     private TravelsDBHelper dbHelper;
     private SQLiteDatabase db;
 
+    /**
+     * Empty constructor of class FormFragment
+     */
     public DetailTravelFragment() {
         // Required empty public constructor
     }
@@ -59,21 +53,22 @@ public class DetailTravelFragment extends Fragment {
     public static DetailTravelFragment newInstance(String param1, String param2) {
         DetailTravelFragment fragment = new DetailTravelFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
 
+    /**
+     * Called to do initial creation of the fragment.
+     * @param savedInstanceState: instance of Detail fragment
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
+    /**
+     * Creates and returns the view for the detail fragment
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -90,6 +85,11 @@ public class DetailTravelFragment extends Fragment {
         EditText airport = view.findViewById(R.id.txtAirportEdit);
         airport.setText(travel.getAirport());
 
+
+        /**
+         * Button to edit and save. Edit option allows to modify the travel information.
+         * After saving, a confirmation toast will appear.
+         */
         Button btnDetail = view.findViewById(R.id.btnDetail);
         btnDetail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,6 +122,15 @@ public class DetailTravelFragment extends Fragment {
 
         return view;
     }
+
+    /**
+     * Fields state will change to enable or disable so they can be modify.
+     * @param country
+     * @param city
+     * @param airport
+     * @param change
+     */
+
     public static void enable(EditText country, EditText city, EditText airport, boolean change){
         country.setEnabled(change);
         city.setEnabled(change);

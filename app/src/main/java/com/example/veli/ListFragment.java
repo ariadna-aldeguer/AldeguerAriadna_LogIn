@@ -28,15 +28,6 @@ import com.example.veli.Model.Travel;
  */
 public class ListFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     //Create the instance of dbHelper
     private TravelsDBHelper dbHelper;
     private SQLiteDatabase db;
@@ -67,8 +58,6 @@ public class ListFragment extends Fragment {
     public static ListFragment newInstance(String param1, String param2) {
         ListFragment fragment = new ListFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -80,10 +69,6 @@ public class ListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
     /**
      * Creates and returns the view for the lit fragment
@@ -111,14 +96,14 @@ public class ListFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setTitle("All travels will be delete permanently");
-                builder.setMessage("Do you want to continue?")
+                builder.setTitle(getString(R.string.alertDelete));
+                builder.setMessage(getString(R.string.confirmation))
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 //OK METHOD
                                 dbHelper.deleteAllTravels(db);
                                 refresh();
-                                Toast.makeText(getContext(), "Travels successfully deleted", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getContext(), getString(R.string.deletedTravels), Toast.LENGTH_LONG).show();
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {

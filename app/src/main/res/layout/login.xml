@@ -139,7 +139,7 @@
                         android:layout_marginTop="36dp"
                         android:backgroundTint="@color/blue"
                         android:fontFamily="@font/roboto_bold"
-                        android:text="Sign In"
+                        android:text="@string/btnSingIn"
                         android:textColor="@color/white"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"

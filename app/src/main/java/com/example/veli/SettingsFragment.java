@@ -1,6 +1,7 @@
 package com.example.veli;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -28,14 +29,6 @@ import java.util.concurrent.Executor;
 
 public class SettingsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     private Executor executor;
     private BiometricPrompt biometricPrompt;
@@ -57,8 +50,6 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
     public static SettingsFragment newInstance(String param1, String param2) {
         SettingsFragment fragment = new SettingsFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -70,10 +61,6 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     /**
@@ -84,35 +71,41 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
+        //Retrieve and hold the contents of the preferences file 'name'.
         SharedPreferences prefs = getContext().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
+        //Modifying values in a SharedPreferences object
         SharedPreferences.Editor prefsEdit = prefs.edit();
 
+        // Define Biometric Prompt and all possible answers
         executor = ContextCompat.getMainExecutor(getContext());
         biometricPrompt = new BiometricPrompt(this, executor, new BiometricPrompt.AuthenticationCallback() {
+            //Called when an unrecoverable error has been encountered and the operation is complete.
             @Override
             public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
                 super.onAuthenticationError(errorCode, errString);
-                //Error
+                Toast.makeText(getContext(), getString(R.string.errorAuthentication) + errString, Toast.LENGTH_LONG).show();
             }
-
+            //Called when a biometric is recognized. Delete all SharedPreferences and go back to firts screen.
             @Override
             public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
-                //Succed
-                prefsEdit .clear().commit();
+                //Succeeded
+                prefsEdit.clear().commit();
+                startLogin();
             }
-
+            //Called when a biometric is valid but not recognized.
             @Override
             public void onAuthenticationFailed() {
                 super.onAuthenticationFailed();
-                //Failed
+                Toast.makeText(getContext(), getString(R.string.failedAuthentication), Toast.LENGTH_LONG).show();
             }
         });
 
+        //Set options for the BiometricPrompt
         promptInfo = new BiometricPrompt.PromptInfo.Builder()
-                .setTitle("Biometric login for my app")
-                .setSubtitle("Log in using your biometric credential")
-                .setNegativeButtonText("Use account password")
+                .setTitle(getString(R.string.biometricTitle))
+                .setSubtitle(getString(R.string.biometricSubtitle))
+                .setNegativeButtonText(getString(R.string.biometricPassword))
                 .build();
 
 
@@ -128,7 +121,9 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         spinner.setAdapter(adapter);
         spinner.setSelection(0, false);
 
-
+        /**
+         * The selected language it's saved in SharedPreferences.
+         */
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View selectedItemView, int position, long id) {
@@ -146,6 +141,9 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         });
 
         Button btnSavePreferences = view.findViewById(R.id.btnSavePreferences);
+        /**
+         * Save the created preferences.
+         */
         btnSavePreferences.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -154,7 +152,9 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
             }
         });
 
-
+        /**
+         * On click reset button,  the biometric prompt is shown to authenticate.
+         */
         Button btnReset = view.findViewById(R.id.btnReset);
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,12 +174,13 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-    }
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {    }
 
     @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
+    public void onNothingSelected(AdapterView<?> adapterView) {    }
 
-    }
+    /**
+     * Start activity Login
+     */
+    public void startLogin() { startActivity(new Intent(getContext(), LoginActivity.class)); }
 }
