@@ -68,7 +68,7 @@ We can delete one item or delete them all. The latter asks for confirmation to p
 #### Detail Travel Screen
 Display detailed information about a trip. It can be edited and saved.
 
-![Detail_Edit_Screen](https://user-images.githubusercontent.com/71792438/143624177-86e55fd8-2bfd-4418-8167-25a1614d98db.jpg)!   [Detail_Save_Screen](https://user-images.githubusercontent.com/71792438/143624185-a3e1af57-50d5-4e19-9a52-504e2a3a6669.jpg)
+![Detail_Edit_Screen](https://user-images.githubusercontent.com/71792438/143624177-86e55fd8-2bfd-4418-8167-25a1614d98db.jpg)   ![Detail_Save_Screen](https://user-images.githubusercontent.com/71792438/143624185-a3e1af57-50d5-4e19-9a52-504e2a3a6669.jpg)
 
 
 
